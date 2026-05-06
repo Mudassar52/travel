@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book a Package - Sky Dreams Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Book your Umrah or Holiday package with Sky Dreams Travel — Okara's most trusted travel agency." />
+    <link rel="shortcut icon" href="favicon.svg" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+      /* ===================== BOOKING PAGE STYLES ===================== */
+
+      /* ---- HERO ---- */
+      .booking-hero {
+        background:
+          linear-gradient(to bottom, hsla(0,0%,0%,0.45) 0%, hsla(0,0%,0%,0.65) 100%),
+          url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1600&q=80') center/cover no-repeat;
+        padding-block: 90px 70px;
+        margin-block-start: 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .booking-hero .container { position: relative; z-index: 1; }
+
+      .booking-hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: hsla(0,0%,100%,0.14);
+        color: var(--text-white);
+        font-size: 1.35rem;
+        font-weight: var(--weight-medium);
+        padding: 6px 20px;
+        border-radius: 30px;
+        margin-block-end: 20px;
+        letter-spacing: 0.06em;
+      }
+
+      .booking-hero-title {
+        font-size: clamp(3.2rem, 5.5vw, 5rem);
+        font-weight: var(--weight-bold);
+        color: var(--text-white);
+        line-height: 1.1;
+        margin-block-end: 14px;
+      }
+
+      .booking-hero-title span {
+        color: var(--bg-majorelle-blue);
+        filter: brightness(1.8);
+      }
+
+      .booking-hero-text {
+        color: hsla(0,0%,100%,0.85);
+        font-size: 1.55rem;
+        max-width: 520px;
+        margin-inline: auto;
+        line-height: 1.7;
+      }
+
+      /* ---- TRUST STRIP ---- */
+      .trust-strip {
+        background: var(--bg-majorelle-blue);
+        padding-block: 22px;
+      }
+
+      .trust-grid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px 40px;
+        flex-wrap: wrap;
+        text-align: center;
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: white;
+        font-size: 1.4rem;
+        font-weight: var(--weight-medium);
+      }
+
+      .trust-item ion-icon {
+        font-size: 1.8rem;
+        color: hsla(0,0%,100%,0.85);
+        flex-shrink: 0;
+      }
+
+      /* ---- BOOKING SECTION ---- */
+      .booking-section {
+        padding-block: 80px;
+        background: var(--bg-lavender-blush);
+      }
+
+      .booking-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      @media (min-width: 992px) {
+        .booking-layout { grid-template-columns: 1fr 380px; gap: 50px; }
+      }
+
+      /* Form Card */
+      .booking-form-card {
+        background: var(--bg-white);
+        border-radius: var(--radius-20);
+        padding: 40px 36px;
+        box-shadow: var(--shadow-1);
+      }
+
+      .form-section-title {
+        font-size: 2.4rem;
+        font-weight: var(--weight-bold);
+        color: var(--text-gunmetal);
+        margin-block-end: 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .form-section-title ion-icon {
+        color: var(--bg-majorelle-blue);
+        font-size: 2.4rem;
+      }
+
+      .form-section-subtitle {
+        font-size: 1.4rem;
+        color: var(--text-granite-gray);
+        margin-block-end: 32px;
+      }
+
+      /* Step indicator */
+      .form-steps {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        margin-block-end: 36px;
+      }
+
+      .form-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        flex: 1;
+        position: relative;
+        font-size: 1.2rem;
+        color: var(--text-granite-gray);
+        font-weight: var(--weight-medium);
+      }
+
+      .form-step::after {
+        content: '';
+        position: absolute;
+        top: 18px;
+        left: 50%;
+        width: 100%;
+        height: 2px;
+        background: var(--border-gainsboro);
+        z-index: 0;
+      }
+
+      .form-step:last-child::after { display: none; }
+
+      .step-circle {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--border-gainsboro);
+        color: var(--text-granite-gray);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        font-weight: var(--weight-bold);
+        position: relative;
+        z-index: 1;
+        border: 2px solid var(--border-gainsboro);
+        transition: all 0.3s;
+      }
+
+      .form-step.active .step-circle {
+        background: var(--bg-majorelle-blue);
+        color: white;
+        border-color: var(--bg-majorelle-blue);
+        box-shadow: var(--shadow-2);
+      }
+
+      .form-step.active { color: var(--text-majorelle-blue); }
+
+      .form-step.done .step-circle {
+        background: hsl(145, 63%, 42%);
+        border-color: hsl(145, 63%, 42%);
+        color: white;
+      }
+
+      .form-step.done::after { background: var(--bg-majorelle-blue); }
+
+      /* Form Groups */
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-block-end: 18px;
+      }
+
+      @media (min-width: 580px) {
+        .form-row.two-col { grid-template-columns: 1fr 1fr; }
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .form-label {
+        font-size: 1.35rem;
+        font-weight: var(--weight-semiBold);
+        color: var(--text-gunmetal);
+      }
+
+      .form-label span { color: var(--bg-red-salsa); margin-inline-start: 2px; }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1.5px solid var(--border-gainsboro);
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 1.4rem;
+        color: var(--text-gunmetal);
+        background: var(--bg-white);
+        outline: none;
+        transition: border-color 0.25s, box-shadow 0.25s;
+        box-sizing: border-box;
+      }
+
+      .form-control:focus {
+        border-color: var(--bg-majorelle-blue);
+        box-shadow: 0 0 0 3px hsla(249,95%,63%,0.12);
+      }
+
+      .form-control::placeholder { color: var(--text-granite-gray); opacity: 0.7; }
+
+      select.form-control { cursor: pointer; }
+
+      textarea.form-control {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      /* Package type cards */
+      .package-type-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-block-end: 18px;
+      }
+
+      .pkg-type-card {
+        border: 2px solid var(--border-gainsboro);
+        border-radius: 12px;
+        padding: 16px 14px;
+        cursor: pointer;
+        transition: all 0.25s;
+        text-align: center;
+        background: var(--bg-white);
+      }
+
+      .pkg-type-card:hover {
+        border-color: var(--bg-majorelle-blue);
+        background: var(--bg-majorelle-blue-alpha-5);
+      }
+
+      .pkg-type-card.selected {
+        border-color: var(--bg-majorelle-blue);
+        background: var(--bg-majorelle-blue-alpha-5);
+        box-shadow: var(--shadow-2);
+      }
+
+      .pkg-type-icon {
+        font-size: 1.8rem;
+        color: var(--bg-majorelle-blue);
+        flex-shrink: 0;
+      }
+
+      .pkg-type-name {
+        font-size: 1.4rem;
+        font-weight: var(--weight-semiBold);
+        color: var(--text-gunmetal);
+        margin-block-end: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .pkg-type-desc {
+        font-size: 1.2rem;
+        color: var(--text-granite-gray);
+      }
+
+      /* Traveller counter */
+      .traveller-counter {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1.5px solid var(--border-gainsboro);
+        border-radius: 10px;
+        padding: 10px 14px;
+        gap: 12px;
+      }
+
+      .traveller-label {
+        font-size: 1.4rem;
+        color: var(--text-gunmetal);
+        font-weight: var(--weight-medium);
+      }
+
+      .counter-controls {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .counter-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1.5px solid var(--bg-majorelle-blue);
+        background: transparent;
+        color: var(--bg-majorelle-blue);
+        font-size: 2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        line-height: 1;
+        font-weight: 300;
+      }
+
+      .counter-btn:hover {
+        background: var(--bg-majorelle-blue);
+        color: white;
+      }
+
+      .counter-value {
+        font-size: 1.8rem;
+        font-weight: var(--weight-bold);
+        color: var(--text-gunmetal);
+        min-width: 24px;
+        text-align: center;
+      }
+
+      .travellers-row {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-block-end: 18px;
+      }
+
+      /* Divider */
+      .form-divider {
+        border: none;
+        border-top: 1px solid var(--border-gainsboro);
+        margin-block: 28px;
+      }
+
+      /* Submit */
+      .btn-submit {
+        width: 100%;
+        padding: 15px 30px;
+        background: var(--bg-majorelle-blue);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-family: inherit;
+        font-size: 1.6rem;
+        font-weight: var(--weight-bold);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+        box-shadow: var(--shadow-2);
+        margin-block-start: 28px;
+      }
+
+      .btn-submit:hover {
+        background: var(--bg-ocean-blue);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px hsla(249,95%,63%,0.5);
+      }
+
+      .btn-submit ion-icon { font-size: 2rem; }
+
+      .form-note {
+        text-align: center;
+        font-size: 1.3rem;
+        color: var(--text-granite-gray);
+        margin-block-start: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      .form-note ion-icon { color: hsl(145, 63%, 42%); font-size: 1.5rem; }
+
+      /* ---- SIDEBAR ---- */
+      .booking-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      /* Contact card */
+      .sidebar-card {
+        background: var(--bg-white);
+        border-radius: var(--radius-20);
+        padding: 28px 24px;
+        box-shadow: var(--shadow-1);
+      }
+
+      .sidebar-card-title {
+        font-size: 1.8rem;
+        font-weight: var(--weight-bold);
+        color: var(--text-gunmetal);
+        margin-block-end: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .sidebar-card-title ion-icon { color: var(--bg-majorelle-blue); font-size: 1.8rem; }
+
+      .contact-methods {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .contact-method {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+        padding: 14px;
+        border-radius: 12px;
+        background: var(--bg-lavender-blush);
+        transition: background 0.25s, transform 0.2s;
+      }
+
+      .contact-method:hover {
+        background: var(--bg-majorelle-blue-alpha-5);
+        transform: translateX(4px);
+      }
+
+      .contact-method-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-size: 2rem;
+        flex-shrink: 0;
+        color: white;
+      }
+
+      .contact-method-icon.whatsapp { background: hsl(142, 70%, 49%); }
+      .contact-method-icon.phone    { background: var(--bg-majorelle-blue); }
+      .contact-method-icon.email    { background: hsl(357, 94%, 63%); }
+
+      .contact-method-info strong {
+        display: block;
+        font-size: 1.4rem;
+        font-weight: var(--weight-semiBold);
+        color: var(--text-gunmetal);
+        margin-block-end: 2px;
+      }
+
+      .contact-method-info span {
+        font-size: 1.25rem;
+        color: var(--text-granite-gray);
+      }
+
+      /* Package highlights card */
+      .highlight-list {
+        list-style: none;
+        padding: 0; margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .highlight-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 1.4rem;
+        color: var(--text-gunmetal);
+      }
+
+      .highlight-item ion-icon {
+        color: var(--bg-majorelle-blue);
+        font-size: 1.8rem;
+        flex-shrink: 0;
+        margin-block-start: 1px;
+      }
+
+      /* Popular packages card */
+      .popular-pkg-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .popular-pkg-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1.5px solid var(--border-gainsboro);
+        cursor: pointer;
+        transition: border-color 0.25s, background 0.25s;
+        text-decoration: none;
+      }
+
+      .popular-pkg-item:hover {
+        border-color: var(--bg-majorelle-blue);
+        background: var(--bg-majorelle-blue-alpha-5);
+      }
+
+      .popular-pkg-emoji {
+        font-size: 2.4rem;
+        flex-shrink: 0;
+      }
+
+      .popular-pkg-info strong {
+        display: block;
+        font-size: 1.4rem;
+        font-weight: var(--weight-semiBold);
+        color: var(--text-gunmetal);
+        margin-block-end: 2px;
+      }
+
+      .popular-pkg-info span {
+        font-size: 1.25rem;
+        color: var(--text-majorelle-blue);
+        font-weight: var(--weight-medium);
+      }
+
+      /* Success message */
+      .booking-success {
+        display: none;
+        text-align: center;
+        padding: 50px 30px;
+      }
+
+      .success-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: hsl(145, 63%, 42%);
+        color: white;
+        font-size: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        box-shadow: 0 10px 30px hsla(145,63%,42%,0.35);
+      }
+
+      .success-title {
+        font-size: 2.6rem;
+        font-weight: var(--weight-bold);
+        color: var(--text-gunmetal);
+        margin-block-end: 12px;
+      }
+
+      .success-text {
+        font-size: 1.5rem;
+        color: var(--text-granite-gray);
+        line-height: 1.7;
+        max-width: 400px;
+        margin-inline: auto;
+        margin-block-end: 30px;
+      }
+
+      /* Responsive */
+      @media (max-width: 580px) {
+        .booking-form-card { padding: 28px 20px; }
+        .package-type-grid { grid-template-columns: 1fr 1fr; }
+      }
+    
+        /* ===== WHATSAPP FLOAT BUTTON ===== */
+        .wa-float {
+          position: fixed;
+          bottom: 28px;
+          right: 28px;
+          z-index: 9999;
+          width: 58px;
+          height: 58px;
+          border-radius: 50%;
+          background: hsl(142, 70%, 49%);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 3rem;
+          text-decoration: none;
+          box-shadow: 0 6px 24px hsla(142,70%,49%,0.5);
+          transition: transform 0.25s, box-shadow 0.25s;
+          animation: wa-pulse 2.5s infinite;
+        }
+        .wa-float:hover {
+          transform: scale(1.12);
+          box-shadow: 0 10px 32px hsla(142,70%,49%,0.65);
+          animation: none;
+        }
+        .wa-float-tooltip {
+          position: absolute;
+          right: 68px;
+          background: hsl(209,40%,14%);
+          color: white;
+          font-size: 1.25rem;
+          font-weight: 500;
+          padding: 7px 14px;
+          border-radius: 8px;
+          white-space: nowrap;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.25s;
+          font-family: Poppins, sans-serif;
+        }
+        .wa-float-tooltip::after {
+          content: '';
+          position: absolute;
+          left: 100%;
+          top: 50%;
+          transform: translateY(-50%);
+          border: 6px solid transparent;
+          border-left-color: hsl(209,40%,14%);
+        }
+        .wa-float:hover .wa-float-tooltip { opacity: 1; }
+        @keyframes wa-pulse {
+          0%,100% { box-shadow: 0 6px 24px hsla(142,70%,49%,0.5); }
+          50% { box-shadow: 0 6px 32px hsla(142,70%,49%,0.75), 0 0 0 10px hsla(142,70%,49%,0.12); }
+        }
+
+      </style>
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div class="preloader" data-preloader>
+      <div class="preloader-inner">
+        <img src="assets/img/preloader.svg" width="50" height="50" alt="" class="img" />
+      </div>
+    </div>
+
+    <!-- ======= HEADER ======= -->
+    <header class="header" data-header>
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="assets/img/logo.png" width="187" height="38" alt="Sky Dreams Travel" />
+        </a>
+
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="index.html" class="logo">
+              <img src="assets/img/logo.png" width="187" height="38" alt="logo" />
+            </a>
+            <button class="nav-toggle-btn" aria-label="close menu" data-nav-toggler>
+              <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
+
+          <ul class="navbar-list">
+            <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+            <li class="navbar-item"><a href="about.html" class="navbar-link">About</a></li>
+            <li class="navbar-item"><a href="holiday.html" class="navbar-link">Holiday</a></li>
+            <li class="navbar-item"><a href="umrah.html" class="navbar-link">Umrah</a></li>
+            <li class="navbar-item"><a href="transfers.html" class="navbar-link">Transfers</a></li>
+            <li class="navbar-item"><a href="visa.html" class="navbar-link">Visa</a></li>
+            <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+            <div class="header-action">
+            <a href="booking.html" class="btn btn-primary active">Booking</a>
+          </div>
+          </ul>
+       
+        </nav>
+
+        <button class="nav-toggle-btn" aria-label="open menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <div class="overlay" data-overlay data-nav-toggler></div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ===== HERO ===== -->
+      <section class="booking-hero">
+        <div class="container">
+          <p class="booking-hero-badge">
+            <ion-icon name="calendar-outline"></ion-icon>
+            Book Your Package
+          </p>
+          <h1 class="booking-hero-title">
+            Start Your Journey<br>with <span>Sky Dreams</span>
+          </h1>
+          <p class="booking-hero-text">
+            Fill in your details below and our travel experts will get back to you within 24 hours with a custom quote.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== TRUST STRIP ===== -->
+      <div class="trust-strip">
+        <div class="container">
+          <div class="trust-grid">
+            <div class="trust-item">
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+              100% Secure Booking
+            </div>
+            <div class="trust-item">
+              <ion-icon name="wallet-outline"></ion-icon>
+              No Hidden Charges
+            </div>
+            <div class="trust-item">
+              <ion-icon name="headset-outline"></ion-icon>
+              24/7 Expert Support
+            </div>
+            <div class="trust-item">
+              <ion-icon name="document-text-outline"></ion-icon>
+              Visa Assistance
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BOOKING FORM ===== -->
+      <section class="booking-section">
+        <div class="container">
+          <div class="booking-layout">
+
+            <!-- ---- FORM ---- -->
+            <div class="booking-form-card">
+
+              <h2 class="form-section-title">
+                <ion-icon name="clipboard-outline"></ion-icon>
+                Booking Request Form
+              </h2>
+              <p class="form-section-subtitle">All fields marked with * are required. We'll contact you within 24 hours.</p>
+
+              <!-- Steps -->
+              <div class="form-steps">
+                <div class="form-step done" id="step-1-indicator">
+                  <div class="step-circle"><ion-icon name="person-outline"></ion-icon></div>
+                  <span>Personal</span>
+                </div>
+                <div class="form-step active" id="step-2-indicator">
+                  <div class="step-circle"><ion-icon name="briefcase-outline"></ion-icon></div>
+                  <span>Package</span>
+                </div>
+                <div class="form-step" id="step-3-indicator">
+                  <div class="step-circle"><ion-icon name="checkmark-outline"></ion-icon></div>
+                  <span>Confirm</span>
+                </div>
+              </div>
+
+              <!-- Actual Form -->
+              <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+
+                <!-- Package Type -->
+                <p class="form-label" style="margin-block-end:12px; display:flex; align-items:center; gap:7px;"><ion-icon name="grid-outline" style="color:var(--bg-majorelle-blue, hsl(249,95%,53%)); font-size:1.7rem; flex-shrink:0;"></ion-icon>Select Package Type <span>*</span></p>
+                <div class="package-type-grid">
+                  <div class="pkg-type-card selected" onclick="selectPackage(this, 'Umrah Package')">
+                    <p class="pkg-type-name"><ion-icon name="moon-outline" class="pkg-type-icon"></ion-icon>Umrah</p>
+                    <p class="pkg-type-desc">Hajj & Umrah</p>
+                  </div>
+                  <div class="pkg-type-card" onclick="selectPackage(this, 'Holiday Package')">
+                    <p class="pkg-type-name"><ion-icon name="airplane-outline" class="pkg-type-icon"></ion-icon>Holiday</p>
+                    <p class="pkg-type-desc">International Tours</p>
+                  </div>
+                  <div class="pkg-type-card" onclick="selectPackage(this, 'Group Package')">
+                    <p class="pkg-type-name"><ion-icon name="people-outline" class="pkg-type-icon"></ion-icon>Group Tour</p>
+                    <p class="pkg-type-desc">10+ Travellers</p>
+                  </div>
+                  <div class="pkg-type-card" onclick="selectPackage(this, 'Custom Package')">
+                    <p class="pkg-type-name"><ion-icon name="construct-outline" class="pkg-type-icon"></ion-icon>Custom</p>
+                    <p class="pkg-type-desc">Build Your Own</p>
+                  </div>
+                </div>
+                <input type="hidden" id="selectedPackageType" value="Umrah Package" />
+
+                <hr class="form-divider" />
+
+                <!-- Personal Info -->
+                <div class="form-row two-col">
+                  <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Muhammad Ali" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Nationality</label>
+                    <input type="text" class="form-control" id="nationality" placeholder="e.g. Pakistani, British, Saudi..." required />
+                  </div>
+                </div>
+
+                <div class="form-row two-col">
+                  <div class="form-group">
+                    <label class="form-label">Phone / WhatsApp</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="+92 300 0000000" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" id="emailField" class="form-control" placeholder="you@example.com" />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">City / Address </label>
+                    <input type="text" class="form-control" id="city" placeholder="Okara, Punjab, Pakistan" required />
+                  </div>
+                </div>
+
+                <!-- Departure Airport -->
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Departure Airport</label>
+                    <select id="departureAirport" class="form-control" onchange="handleAirportSelect(this)" required>
+                      <option value="">— Select Departure Airport —</option>
+                      <option value="London (Any Airport)">✈️ London (Any Airport)</option>
+                      <option value="London Heathrow Airport (LHR)">✈️ London Heathrow Airport (LHR)</option>
+                      <option value="London Gatwick Airport (LGW)">✈️ London Gatwick Airport (LGW)</option>
+                      <option value="London Stansted Airport (STN)">✈️ London Stansted Airport (STN)</option>
+                      <option value="Birmingham Airport (BHX)">✈️ Birmingham Airport (BHX)</option>
+                      <option value="Manchester Airport (MAN)">✈️ Manchester Airport (MAN)</option>
+                      <option value="Edinburgh Airport (EDI)">✈️ Edinburgh Airport (EDI)</option>
+                      <option value="Glasgow Airport (GLA)">✈️ Glasgow Airport (GLA)</option>
+                      <option value="other">✏️ Other (Type below)</option>
+                    </select>
+                    <input type="text" id="departureAirportCustom" class="form-control" placeholder="Type your departure airport..." style="display:none; margin-top:8px;" />
+                  </div>
+                </div>
+
+                <hr class="form-divider" />
+
+                <!-- Travel Details -->
+                <div class="form-row two-col">
+                  <div class="form-group">
+                    <label class="form-label">Preferred Destination</label>
+                    <select id="destination" class="form-control">
+                      <option value="">— Select Destination —</option>
+                      <optgroup label="Umrah / Hajj">
+                        <option>Umrah Economy Package</option>
+                        <option>Umrah Standard Package</option>
+                        <option>Umrah Premium Package</option>
+                        <option>Makkah & Madinah (Umrah)</option>
+                        <option>Umrah + Madinah Extended</option>
+                      </optgroup>
+                      <optgroup label="Holiday Destinations">
+                        <option>Turkey (Istanbul + Cappadocia)</option>
+                        <option>Dubai, UAE</option>
+                        <option>Morocco</option>
+                        <option>Egypt</option>
+                        <option>Indonesia (Bali)</option>
+                        <option>Azerbaijan (Baku)</option>
+                        <option>Other (mention below)</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Preferred Travel Month</label>
+                    <select id="travelMonth" class="form-control">
+                      <option value="">— Select Month —</option>
+                      <option>January 2026</option>
+                      <option>February 2026</option>
+                      <option>March 2026</option>
+                      <option>April 2026</option>
+                      <option>May 2026</option>
+                      <option>June 2026</option>
+                      <option>July 2026</option>
+                      <option>August 2026</option>
+                      <option>September 2026</option>
+                      <option>October 2026</option>
+                      <option>November 2026</option>
+                      <option>December 2026</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row two-col">
+                  <div class="form-group">
+                    <label class="form-label">Trip Duration</label>
+                    <select id="duration" class="form-control">
+                      <option value="">— Select Duration —</option>
+                      <option>7 Days / 6 Nights</option>
+                      <option>10 Days / 9 Nights</option>
+                      <option>14 Days / 13 Nights</option>
+                      <option>21 Days / 20 Nights</option>
+                      <option>Custom Duration</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Budget Range (PKR)</label>
+                    <select id="budget" class="form-control">
+                      <option value="">— Select Budget —</option>
+                      <option>Under 1.5 Lakh</option>
+                      <option>1.5L – 2.5L</option>
+                      <option>2.5L – 4L</option>
+                      <option>4L – 6L</option>
+                      <option>Above 6 Lakh</option>
+                      <option>Flexible / Open</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Travellers -->
+                <p class="form-label" style="margin-block-end: 12px;">Number of Travellers</p>
+                <div class="travellers-row">
+                  <div class="traveller-counter">
+                    <span class="traveller-label">👨‍👩‍👧 Adults (12+)</span>
+                    <div class="counter-controls">
+                      <button type="button" class="counter-btn" onclick="changeCount('adults', -1)">−</button>
+                      <span class="counter-value" id="adults-count">1</span>
+                      <button type="button" class="counter-btn" onclick="changeCount('adults', 1)">+</button>
+                    </div>
+                  </div>
+                  <div class="traveller-counter">
+                    <span class="traveller-label">👶 Children (2–11)</span>
+                    <div class="counter-controls">
+                      <button type="button" class="counter-btn" onclick="changeCount('children', -1)">−</button>
+                      <span class="counter-value" id="children-count">0</span>
+                      <button type="button" class="counter-btn" onclick="changeCount('children', 1)">+</button>
+                    </div>
+                  </div>
+                  <!-- Children Age Inputs -->
+                  <div id="children-ages-container" style="display:none; margin-top:12px;">
+                    <p class="form-label" style="margin-block-end:10px; font-size:1.3rem; color:var(--text-granite-gray);">✏️ Enter age of each child:</p>
+                    <div id="children-ages-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap:10px;"></div>
+                  </div>
+                </div>
+
+                <hr class="form-divider" />
+
+                <div class="form-group">
+                  <label class="form-label">Hotel Category</label>
+                  <select id="hotelCategory" class="form-control">
+                    <option value="">— Select Hotel Category —</option>
+                    <option value="3-star">⭐⭐⭐ 3 Star Hotel</option>
+                    <option value="4-star">⭐⭐⭐⭐ 4 Star Hotel</option>
+                    <option value="5-star">⭐⭐⭐⭐⭐ 5 Star Hotel</option>
+                  </select>
+                </div>
+
+                <!-- Transport -->
+                <div class="form-group" style="margin-block-start: 18px;">
+                  <label class="form-label">Transport Preference</label>
+                  <select id="transportType" class="form-control">
+                    <option value="">— Select Transport Type —</option>
+                    <option value="transport-1">🚌 Option 1 — Standard Coach (AC)</option>
+                    <option value="transport-2">🚐 Option 2 — Mini Van / Private Vehicle</option>
+                    <option value="transport-3">🚗 Option 3 — Luxury Car / VIP Transfer</option>
+                  </select>
+                </div>
+
+                <!-- Special Requests -->
+                <div class="form-group" style="margin-block-start: 18px;">
+                  <label class="form-label">Special Requests / Additional Info</label>
+                  <textarea id="specialRequests" class="form-control" placeholder="e.g. Wheelchair assistance, specific hotel preference, visa status, connecting from another city..."></textarea>
+                </div>
+
+                <!-- How did you hear -->
+                <div class="form-group" style="margin-block-start: 18px;">
+                  <label class="form-label">How did you hear about us?</label>
+                  <select id="hearAboutUs" class="form-control">
+                    <option value="">— Select —</option>
+                    <option>Facebook / Instagram</option>
+                    <option>WhatsApp</option>
+                    <option>Friend / Family Referral</option>
+                    <option>Google Search</option>
+                    <option>Walk-in / Office</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                  <ion-icon name="send-outline"></ion-icon>
+                  Submit Booking Request
+                </button>
+
+                <p class="form-note">
+                  <ion-icon name="lock-closed-outline"></ion-icon>
+                  Your information is 100% secure and will never be shared.
+                </p>
+
+              </form>
+
+              <!-- Success State -->
+              <div class="booking-success" id="successMessage">
+                <div class="success-icon">
+                  <ion-icon name="checkmark-outline"></ion-icon>
+                </div>
+                <h3 class="success-title">Booking Request Received!</h3>
+                <p class="success-text">Jazak Allah Khair! We've received your booking request. Our team will call you within 24 hours to confirm your package details.</p>
+                <a href="index.html" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+                  <ion-icon name="home-outline"></ion-icon>
+                  Back to Home
+                </a>
+              </div>
+
+            </div>
+
+            <!-- ---- SIDEBAR ---- -->
+            <aside class="booking-sidebar">
+
+              <!-- Contact Methods -->
+              <div class="sidebar-card">
+                <h3 class="sidebar-card-title">
+                  <ion-icon name="call-outline"></ion-icon>
+                  Talk to an Expert
+                </h3>
+                <div class="contact-methods">
+                  <a href="https://wa.me/923287458137" class="contact-method" target="_blank">
+                    <div class="contact-method-icon whatsapp">
+                      <ion-icon name="logo-whatsapp"></ion-icon>
+                    </div>
+                    <div class="contact-method-info">
+                      <strong>WhatsApp</strong>
+                      <span>+92 300 123 4567</span>
+                    </div>
+                  </a>
+                  <a href="tel:+923287458137" class="contact-method">
+                    <div class="contact-method-icon phone">
+                      <ion-icon name="call-outline"></ion-icon>
+                    </div>
+                    <div class="contact-method-info">
+                      <strong>Call Us</strong>
+                      <span>+92 300 123 4567</span>
+                    </div>
+                  </a>
+                  <a href="mailto:info@skydreamstravel.com" class="contact-method">
+                    <div class="contact-method-icon email">
+                      <ion-icon name="mail-outline"></ion-icon>
+                    </div>
+                    <div class="contact-method-info">
+                      <strong>Email</strong>
+                      <span>info@skydreamstravel.com</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Booking Highlights -->
+              <div class="sidebar-card">
+                <h3 class="sidebar-card-title">
+                  <ion-icon name="star-outline"></ion-icon>
+                  Why Book With Us
+                </h3>
+                <ul class="highlight-list">
+                  <li class="highlight-item">
+                    <ion-icon name="shield-checkmark-outline"></ion-icon>
+                    100% verified & IATA approved agency
+                  </li>
+                  <li class="highlight-item">
+                    <ion-icon name="wallet-outline"></ion-icon>
+                    Best prices with no hidden fees
+                  </li>
+                  <li class="highlight-item">
+                    <ion-icon name="document-text-outline"></ion-icon>
+                    Complete visa documentation handled
+                  </li>
+                  <li class="highlight-item">
+                    <ion-icon name="headset-outline"></ion-icon>
+                    24/7 support in Saudi Arabia & Pakistan
+                  </li>
+                  <li class="highlight-item">
+                    <ion-icon name="airplane-outline"></ion-icon>
+                    Flights + Hotels + Transfers included
+                  </li>
+                  <li class="highlight-item">
+                    <ion-icon name="people-outline"></ion-icon>
+                    12,000+ happy travellers since 2010
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Popular Packages -->
+              <div class="sidebar-card">
+                <h3 class="sidebar-card-title">
+                  <ion-icon name="flame-outline"></ion-icon>
+                  Popular Packages
+                </h3>
+                <div class="popular-pkg-list">
+                  <a href="contact.html" class="popular-pkg-item">
+                    <span class="popular-pkg-emoji">🕌</span>
+                    <div class="popular-pkg-info">
+                      <strong>Umrah Economy</strong>
+                      <span>From PKR 1.2L</span>
+                    </div>
+                  </a>
+                  <a href="contact.html" class="popular-pkg-item">
+                    <span class="popular-pkg-emoji">⭐</span>
+                    <div class="popular-pkg-info">
+                      <strong>Umrah Premium</strong>
+                      <span>From PKR 2.5L</span>
+                    </div>
+                  </a>
+                  <a href="holiday.html" class="popular-pkg-item">
+                    <span class="popular-pkg-emoji">🇹🇷</span>
+                    <div class="popular-pkg-info">
+                      <strong>Turkey Holiday</strong>
+                      <span>From PKR 2.8L</span>
+                    </div>
+                  </a>
+                  <a href="holiday.html" class="popular-pkg-item">
+                    <span class="popular-pkg-emoji">🇦🇪</span>
+                    <div class="popular-pkg-info">
+                      <strong>Dubai Tour</strong>
+                      <span>From PKR 1.9L</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </aside>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="index.html" class="logo">
+              <img src="assets/img/SKY TRAVEL LOGO.png" width="187" height="38" alt="logo" />
+            </a>
+            <p class="footer-text">We always make our customer happy by providing as many choices as possible</p>
+            <ul class="social-list">
+              <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+              <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+              <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            </ul>
+          </div>
+
+                    <ul class="footer-list">
+            <li><p class="footer-list-title">Pages</p></li>
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="umrah.html" class="footer-link">Umrah Packages</a></li>
+            <li><a href="holiday.html" class="footer-link">Holiday Packages</a></li>
+            <li><a href="booking.html" class="footer-link">Book Now</a></li>
+          </ul>
+
+          <ul class="footer-list">
+            <li><p class="footer-list-title">Umrah Packages</p></li>
+            <li><a href="umrah.html" class="footer-link">Economy Package</a></li>
+            <li><a href="umrah.html" class="footer-link">Standard Package</a></li>
+            <li><a href="umrah.html" class="footer-link">Premium Package</a></li>
+          </ul>
+
+          <ul class="footer-list">
+            <li><p class="footer-list-title">Support</p></li>
+            <li><a href="#" class="footer-link">Support Center</a></li>
+            <li><a href="#" class="footer-link">Feedback</a></li>
+            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+            <li><a href="#" class="footer-link">FAQ</a></li>
+          </ul>
+
+          <div class="footer-list">
+            <p class="footer-list-title">Get in Touch</p>
+            <p class="footer-text">Question or feedback? We'd love to hear from you.</p>
+            <form class="input-wrapper" onsubmit="handleNewsletter(event)">
+              <input type="email" placeholder="Email Address" autocomplete="off" required class="input-field" />
+              <button type="submit" class="input-btn" aria-label="send a message">
+                <ion-icon name="paper-plane-outline" aria-hidden="true"></ion-icon>
+              </button>
+            </form>
+          </div>
+</div>
+
+        <div class="footer-bottom">
+          <p class="copyright">Copyright 2025. Sky Dreams Travel — Okara, Pakistan</p>
+          <ul class="footer-bottom-list">
+            <li><a href="terms.html" class="footer-bottom-link">Terms and Condition</a></li>
+            <li><a href="#" class="footer-bottom-link">Privacy and Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+    <script>
+      // Package type selection
+      const counts = { adults: 1, children: 0 };
+
+      function selectPackage(el, type) {
+        document.querySelectorAll('.pkg-type-card').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        document.getElementById('selectedPackageType').value = type;
+      }
+
+      function changeCount(type, delta) {
+        counts[type] = Math.max(0, counts[type] + delta);
+        if (type === 'adults') counts[type] = Math.max(1, counts[type]);
+        document.getElementById(type + '-count').textContent = counts[type];
+
+        if (type === 'children') {
+          updateChildrenAges(counts.children);
+        }
+      }
+
+      function updateChildrenAges(count) {
+        const container = document.getElementById('children-ages-container');
+        const grid = document.getElementById('children-ages-grid');
+        
+        if (count <= 0) {
+          container.style.display = 'none';
+          grid.innerHTML = '';
+          return;
+        }
+
+        container.style.display = 'block';
+
+        // Save existing values
+        const existing = [];
+        grid.querySelectorAll('input').forEach(inp => existing.push(inp.value));
+
+        grid.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+          const wrapper = document.createElement('div');
+          wrapper.style.cssText = 'display:flex; flex-direction:column; gap:5px;';
+
+          const lbl = document.createElement('label');
+          lbl.className = 'form-label';
+          lbl.style.fontSize = '1.2rem';
+          lbl.textContent = 'Child ' + (i + 1) + ' Age';
+
+          const inp = document.createElement('input');
+          inp.type = 'number';
+          inp.className = 'form-control';
+          inp.id = 'child-age-' + i;
+          inp.min = 0;
+          inp.max = 17;
+          inp.placeholder = 'e.g. 5';
+          inp.value = existing[i] || '';
+
+          wrapper.appendChild(lbl);
+          wrapper.appendChild(inp);
+          grid.appendChild(wrapper);
+        }
+      }
+
+      function handleAirportSelect(sel) {
+        const customInput = document.getElementById('departureAirportCustom');
+        if (sel.value === 'other') {
+          customInput.style.display = 'block';
+          customInput.required = true;
+        } else {
+          customInput.style.display = 'none';
+          customInput.required = false;
+          customInput.value = '';
+        }
+      }
+
+      function getChildrenAges() {
+        const ages = [];
+        for (let i = 0; i < counts.children; i++) {
+          const inp = document.getElementById('child-age-' + i);
+          if (inp) ages.push(inp.value || '—');
+        }
+        return ages;
+      }
+
+      function getDepartureAirport() {
+        const sel = document.getElementById('departureAirport');
+        if (sel.value === 'other') {
+          return document.getElementById('departureAirportCustom')?.value || '';
+        }
+        return sel.value;
+      }
+
+      function handleBookingSubmit(e) {
+        e.preventDefault();
+        const btn = document.querySelector('#bookingForm button[type="submit"]');
+        const originalText = btn ? btn.innerHTML : '';
+        if (btn) { btn.innerHTML = '<ion-icon name="hourglass-outline"></ion-icon> Bhej rahe hain...'; btn.disabled = true; }
+
+        const data = {
+          packageType: document.getElementById('selectedPackageType')?.value || '',
+          fullName: document.getElementById('fullName')?.value || '',
+          nationality: document.getElementById('nationality')?.value || '',
+          phone: document.getElementById('phone')?.value || '',
+          email: document.getElementById('emailField')?.value || '',
+          city: document.getElementById('city')?.value || '',
+          departureAirport: getDepartureAirport(),
+          destination: document.getElementById('destination')?.value || '',
+          travelMonth: document.getElementById('travelMonth')?.value || '',
+          duration: document.getElementById('duration')?.value || '',
+          budget: document.getElementById('budget')?.value || '',
+          adults: document.getElementById('adults-count')?.textContent || '1',
+          children: document.getElementById('children-count')?.textContent || '0',
+          childrenAges: getChildrenAges(),
+          hotelCategory: document.getElementById('hotelCategory')?.value || '',
+          transportType: document.getElementById('transportType')?.value || '',
+          specialRequests: document.getElementById('specialRequests')?.value || '',
+          hearAboutUs: document.getElementById('hearAboutUs')?.value || '',
+        };
+
+        fetch('http://localhost:3000/api/booking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        })
+          .then(r => r.json())
+          .then(res => {
+            const form = document.getElementById('bookingForm');
+            const success = document.getElementById('successMessage');
+            if (res.success) {
+              if (res.waUrl) { window.open(res.waUrl, '_blank'); }
+              form.style.display = 'none';
+              success.style.display = 'block';
+              document.querySelector('.booking-form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+              alert('Something went wrong. Please try again.');
+              if (btn) { btn.innerHTML = originalText; btn.disabled = false; }
+            }
+          })
+          .catch(() => {
+            // Fallback: show success + open WhatsApp
+            const waText = `Hello,\n\nMy name is ${data.fullName}. I would like to book a ${data.packageType}.\n\nPhone: ${data.phone}\nCity: ${data.city}\nDestination: ${data.destination || '—'}\nTravel Month: ${data.travelMonth || '—'}\n\nThank you.`;
+            window.open('https://wa.me/923287458137?text=' + encodeURIComponent(waText), '_blank');
+            const form = document.getElementById('bookingForm');
+            const success = document.getElementById('successMessage');
+            form.style.display = 'none';
+            success.style.display = 'block';
+            document.querySelector('.booking-form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+      }
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/923287458137" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+      <span class="wa-float-tooltip">Chat with us!</span>
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </a>
+
+  </body>
+</html>

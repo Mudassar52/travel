@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holiday Packages - Sky Dreams Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Explore amazing holiday packages to Turkey, Dubai, Morocco, Egypt, Indonesia and more with Sky Dreams Travel." />
+    <link rel="shortcut icon" href="favicon.svg" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+
+      /* ============================================================
+         HOLIDAY PAGE
+      ============================================================ */
+
+      /* ---- HERO ---- */
+      .holiday-hero {
+        position: relative;
+        min-height: 65vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-block-start: 80px;
+        overflow: hidden;
+      }
+
+      .hero-bg-img {
+        position: absolute;
+        inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 0;
+        transform: scale(1.04);
+        transition: transform 8s ease;
+      }
+
+      .holiday-hero:hover .hero-bg-img { transform: scale(1); }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          hsla(0,0%,0%,0.08) 0%,
+          hsla(0,0%,0%,0.25) 40%,
+          hsla(0,0%,0%,0.78) 100%
+        );
+        z-index: 1;
+      }
+
+      .holiday-hero .container {
+        position: relative;
+        z-index: 2;
+        padding-block-end: 60px;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: hsla(249,95%,63%,0.22);
+        border: 1px solid hsla(249,95%,63%,0.45);
+        color: hsla(0,0%,100%,0.95);
+        font-size: 1.3rem;
+        font-weight: var(--weight-semiBold);
+        padding: 6px 18px;
+        border-radius: 30px;
+        margin-block-end: 18px;
+        letter-spacing: 0.06em;
+        backdrop-filter: blur(4px);
+      }
+
+      .holiday-hero-title {
+        font-size: clamp(3.6rem, 6vw, 6.8rem);
+        font-weight: var(--weight-bold);
+        color: var(--text-white);
+        line-height: 1.05;
+        margin-block-end: 18px;
+      }
+
+      .holiday-hero-title .accent {
+        color: var(--bg-majorelle-blue);
+        filter: brightness(1.8);
+      }
+
+      .holiday-hero-text {
+        font-size: 1.6rem;
+        color: hsla(0,0%,100%,0.82);
+        max-width: 520px;
+        line-height: 1.7;
+        margin-block-end: 34px;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn-hero-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 26px;
+        border: 2px solid hsla(0,0%,100%,0.55);
+        border-radius: 10px;
+        color: white;
+        font-family: inherit;
+        font-size: 1.4rem;
+        font-weight: var(--weight-semiBold);
+        text-decoration: none;
+        backdrop-filter: blur(4px);
+        transition: background 0.25s, border-color 0.25s;
+      }
+
+      .btn-hero-outline:hover {
+        background: hsla(0,0%,100%,0.12);
+        border-color: white;
+      }
+
+      
+
+      /* ---- PACKAGES SECTION ---- */
+      .holiday-packages {
+        padding-block: 90px;
+        background: var(--bg-lavender-blush);
+      }
+
+      .packages-header {
+        text-align: center;
+        margin-block-end: 55px;
+      }
+
+      .packages-header .section-subtitle { margin-block-end: 8px; }
+
+      .section-desc {
+        font-size: 1.55rem;
+        color: var(--text-granite-gray);
+        max-width: 560px;
+        margin-inline: auto;
+        line-height: 1.7;
+        margin-block-start: 14px;
+      }
+
+      /* Filter Tabs */
+      .filter-tabs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-block-end: 45px;
+      }
+
+      .filter-tab {
+        padding: 9px 22px;
+        border-radius: 30px;
+        border: 1.5px solid var(--border-gainsboro);
+        background: var(--bg-white);
+        color: var(--text-granite-gray);
+        font-family: inherit;
+        font-size: 1.35rem;
+        font-weight: var(--weight-medium);
+        cursor: pointer;
+        transition: all 0.25s;
+      }
+
+      .filter-tab:hover,
+      .filter-tab.active {
+        background: var(--bg-majorelle-blue);
+        border-color: var(--bg-majorelle-blue);
+        color: white;
+        box-shadow: var(--shadow-2);
+      }
+
+      /* Cards Grid */
+      .packages-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      @media (min-width: 580px) {
+        .packages-grid { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (min-width: 992px) {
+        .packages-grid { grid-template-columns: repeat(3, 1fr); }
+      }
+
+      /* Destination Card */
+      .dest-card {
+        background: var(--bg-white);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow-1);
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+        cursor: pointer;
+      }
+
+      .dest-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px hsla(249,95%,63%,0.18);
+      }
+
+      .dest-img-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4/3;
+        overflow: hidden;
+      }
+
+      .dest-img-wrap img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .dest-card:hover .dest-img-wrap img { transform: scale(1.08); }
+
+      .dest-flag {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: var(--bg-white);
+        border-radius: 30px;
+        padding: 5px 12px;
+        font-size: 1.3rem;
+        font-weight: var(--weight-semiBold);
+        color: var(--text-gunmetal);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: var(--shadow-1);
+        z-index: 1;
+      }
+
+      .dest-badge {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background: var(--bg-majorelle-blue);
+        color: white;
+        border-radius: 30px;
+        padding: 4px 12px;
+        font-size: 1.2rem;
+        font-weight: var(--weight-semiBold);
+        z-index: 1;
+      }
+
+      .dest-card-body {
+        padding: 22px 22px 24px;
+      }
+
+      .dest-country-name {
+        font-size: 2rem;
+        font-weight: var(--weight-bold);
+        color: var(--text-gunmetal);
+        margin-block-end: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .dest-country-name .emoji { font-size: 2rem; }
+
+      .dest-tagline {
+        font-size: 1.35rem;
+        color: var(--text-granite-gray);
+        line-height: 1.55;
+        margin-block-end: 18px;
+      }
+
+      .dest-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid var(--border-gainsboro);
+        padding-block-start: 16px;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .dest-info {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 1.3rem;
+        color: var(--text-granite-gray);
+        font-weight: var(--weight-medium);
+      }
+
+      .dest-info ion-icon {
+        font-size: 1.5rem;
+        color: var(--bg-majorelle-blue);
+      }
+
+      .dest-price {
+        text-align: right;
+      }
+
+      .dest-price .from {
+        display: block;
+        font-size: 1.1rem;
+        color: var(--text-granite-gray);
+        margin-block-end: 2px;
+      }
+
+      .dest-price .amount {
+        font-size: 1.8rem;
+        font-weight: var(--weight-bold);
+        color: var(--text-majorelle-blue);
+      }
+
+      .dest-book-btn {
+        width: 100%;
+        margin-block-start: 16px;
+        padding: 12px;
+        background: var(--bg-majorelle-blue-alpha-5);
+        color: var(--text-majorelle-blue);
+        border: 1.5px solid hsla(249,95%,63%,0.2);
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 1.4rem;
+        font-weight: var(--weight-semiBold);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: background 0.25s, color 0.25s, border-color 0.25s;
+      }
+
+      .dest-book-btn:hover {
+        background: var(--bg-majorelle-blue);
+        color: white;
+        border-color: var(--bg-majorelle-blue);
+        box-shadow: var(--shadow-2);
+      }
+
+      /* ---- WHY BOOK WITH US STRIP ---- */
+      .why-book-strip {
+        padding-block: 55px;
+        background: var(--bg-majorelle-blue);
+      }
+
+      .why-book-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 20px;
+        text-align: center;
+      }
+
+      @media (min-width: 768px) {
+        .why-book-grid { grid-template-columns: repeat(4, 1fr); }
+      }
+
+      .why-book-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .why-book-item .icon {
+        font-size: 2.8rem;
+        color: hsla(0,0%,100%,0.9);
+        margin-block-end: 6px;
+        display: block;
+        line-height: 1;
+      }
+
+      .why-book-item h4 {
+        font-size: 1.55rem;
+        font-weight: var(--weight-bold);
+        color: white;
+        margin-block-end: 3px;
+        line-height: 1.2;
+      }
+
+      .why-book-item p {
+        font-size: 1.3rem;
+        color: hsla(0,0%,100%,0.75);
+        line-height: 1.4;
+      }
+
+      /* ---- CTA ---- */
+      .holiday-cta {
+        padding-block: 90px;
+        background:
+          linear-gradient(to bottom, hsla(0,0%,0%,0.55) 0%, hsla(0,0%,0%,0.7) 100%),
+          url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80') center/cover no-repeat;
+        text-align: center;
+      }
+
+      .holiday-cta .container { position: relative; z-index: 1; }
+
+      .hcta-title {
+        font-size: clamp(3rem, 5vw, 5rem);
+        font-weight: var(--weight-bold);
+        color: white;
+        line-height: 1.15;
+        margin-block-end: 16px;
+      }
+
+      .hcta-text {
+        font-size: 1.6rem;
+        color: hsla(0,0%,100%,0.82);
+        max-width: 520px;
+        margin-inline: auto;
+        line-height: 1.7;
+        margin-block-end: 36px;
+      }
+
+      .hcta-btns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn-white {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 14px 30px;
+        background: white;
+        color: var(--bg-majorelle-blue);
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 1.5rem;
+        font-weight: var(--weight-bold);
+        text-decoration: none;
+        transition: box-shadow 0.25s, transform 0.2s;
+        box-shadow: 0 4px 20px hsla(0,0%,0%,0.2);
+      }
+
+      .btn-white:hover {
+        box-shadow: 0 8px 30px hsla(0,0%,0%,0.3);
+        transform: translateY(-2px);
+      }
+
+      .btn-hcta-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 14px 30px;
+        border: 2px solid hsla(0,0%,100%,0.55);
+        border-radius: 10px;
+        color: white;
+        font-family: inherit;
+        font-size: 1.5rem;
+        font-weight: var(--weight-semiBold);
+        text-decoration: none;
+        backdrop-filter: blur(4px);
+        transition: background 0.25s, border-color 0.25s;
+      }
+
+      .btn-hcta-outline:hover {
+        background: hsla(0,0%,100%,0.12);
+        border-color: white;
+      }
+    
+        /* ===== WHATSAPP FLOAT BUTTON ===== */
+        .wa-float {
+          position: fixed;
+          bottom: 28px;
+          right: 28px;
+          z-index: 9999;
+          width: 58px;
+          height: 58px;
+          border-radius: 50%;
+          background: hsl(142, 70%, 49%);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 3rem;
+          text-decoration: none;
+          box-shadow: 0 6px 24px hsla(142,70%,49%,0.5);
+          transition: transform 0.25s, box-shadow 0.25s;
+          animation: wa-pulse 2.5s infinite;
+        }
+        .wa-float:hover {
+          transform: scale(1.12);
+          box-shadow: 0 10px 32px hsla(142,70%,49%,0.65);
+          animation: none;
+        }
+        .wa-float-tooltip {
+          position: absolute;
+          right: 68px;
+          background: hsl(209,40%,14%);
+          color: white;
+          font-size: 1.25rem;
+          font-weight: 500;
+          padding: 7px 14px;
+          border-radius: 8px;
+          white-space: nowrap;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.25s;
+          font-family: Poppins, sans-serif;
+        }
+        .wa-float-tooltip::after {
+          content: '';
+          position: absolute;
+          left: 100%;
+          top: 50%;
+          transform: translateY(-50%);
+          border: 6px solid transparent;
+          border-left-color: hsl(209,40%,14%);
+        }
+        .wa-float:hover .wa-float-tooltip { opacity: 1; }
+        @keyframes wa-pulse {
+          0%,100% { box-shadow: 0 6px 24px hsla(142,70%,49%,0.5); }
+          50% { box-shadow: 0 6px 32px hsla(142,70%,49%,0.75), 0 0 0 10px hsla(142,70%,49%,0.12); }
+        }
+
+      </style>
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div class="preloader" data-preloader>
+      <div class="preloader-inner">
+        <img src="assets/img/preloader.svg" width="50" height="50" alt="" class="img" />
+      </div>
+    </div>
+
+    <!-- ======= HEADER ======= -->
+    <header class="header" data-header>
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="assets/img/logo.png" width="187" height="38" alt="Sky Dreams Travel" />
+        </a>
+
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="index.html" class="logo">
+              <img src="assets/img/logo.png" width="187" height="38" alt="logo" />
+            </a>
+            <button class="nav-toggle-btn" aria-label="close menu" data-nav-toggler>
+              <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
+
+          <ul class="navbar-list">
+            <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+            <li class="navbar-item"><a href="about.html" class="navbar-link">About</a></li>
+            <li class="navbar-item"><a href="holiday.html" class="navbar-link active">Holiday</a></li>
+            <li class="navbar-item"><a href="umrah.html" class="navbar-link">Umrah</a></li>
+            <li class="navbar-item"><a href="transfers.html" class="navbar-link">Transfers</a></li>
+            <li class="navbar-item"><a href="visa.html" class="navbar-link">Visa</a></li>
+            <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+               <div class="header-action">
+            <a href="booking.html" class="btn btn-primary active">Booking</a>
+          </div>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle-btn" aria-label="open menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <div class="overlay" data-overlay data-nav-toggler></div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ===== HERO ===== -->
+      <section class="holiday-hero">
+        <img
+          class="hero-bg-img"
+          src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80"
+          alt="Holiday Travel Background"
+        />
+        <div class="hero-overlay"></div>
+
+        <div class="container">
+          <h1 class="holiday-hero-title">
+            Explore the World<br>with <span class="accent">Sky Dreams</span>
+          </h1>
+          <p class="holiday-hero-text">
+            Handpicked holiday packages to the world's most breathtaking destinations. Flights, hotels, transfers — everything arranged for you.
+          </p>
+          <div class="hero-actions">
+            <a href="#packages" class="btn btn-primary">
+              <ion-icon name="globe-outline"></ion-icon>
+              View Packages
+            </a>
+            <a href="contact.html" class="btn-hero-outline">
+              <ion-icon name="call-outline"></ion-icon>
+              Talk to Expert
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PACKAGES ===== -->
+      <section class="holiday-packages" id="packages">
+        <div class="container">
+
+          <div class="packages-header">
+            <p class="section-subtitle">Our Destinations</p>
+            <h2 class="h2 title section-title">Holiday Packages</h2>
+            <p class="section-desc">Choose from our carefully curated holiday packages. All-inclusive options available with visa assistance, flights and hotel bookings.</p>
+          </div>
+
+          <div class="packages-grid">
+
+            <!-- TURKEY -->
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80"
+                  alt="Turkey Holiday Package"
+                  loading="lazy"
+                />
+                <div class="dest-flag">🇹🇷 Turkey</div>
+                <div class="dest-badge">Popular</div>
+              </div>
+              <div class="dest-card-body">
+                <h3 class="dest-country-name">Turkey</h3>
+                <p class="dest-tagline">Istanbul's grand mosques, Cappadocia's fairy chimneys, and stunning Bosphorus views await you.</p>
+                <div class="dest-meta">
+                  <div>
+                    <div class="dest-info">
+                      <ion-icon name="time-outline"></ion-icon>
+                      7 – 10 Days
+                    </div>
+                    <div class="dest-info" style="margin-block-start:5px;">
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      Direct Flights
+                    </div>
+                  </div>
+                  <div class="dest-price">
+                    <span class="from">Starting from</span>
+                    <span class="amount">PKR 2.8L</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="dest-book-btn">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Book This Package
+                </a>
+              </div>
+            </div>
+
+            <!-- DUBAI -->
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80"
+                  alt="Dubai Holiday Package"
+                  loading="lazy"
+                />
+                <div class="dest-flag">🇦🇪 UAE</div>
+                <div class="dest-badge">Best Seller</div>
+              </div>
+              <div class="dest-card-body">
+                <h3 class="dest-country-name">Dubai</h3>
+                <p class="dest-tagline">Experience the city of gold — Burj Khalifa, desert safari, shopping festivals and luxury hotels.</p>
+                <div class="dest-meta">
+                  <div>
+                    <div class="dest-info">
+                      <ion-icon name="time-outline"></ion-icon>
+                      5 – 7 Days
+                    </div>
+                    <div class="dest-info" style="margin-block-start:5px;">
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      Direct Flights
+                    </div>
+                  </div>
+                  <div class="dest-price">
+                    <span class="from">Starting from</span>
+                    <span class="amount">PKR 1.9L</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="dest-book-btn">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Book This Package
+                </a>
+              </div>
+            </div>
+
+            <!-- MOROCCO -->
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img
+                  src="./assets/img/moroco.jpg"
+                  alt="Morocco Holiday Package"
+                  loading="lazy"
+                />
+                <div class="dest-flag">🇲🇦 Morocco</div>
+                <div class="dest-badge">New</div>
+              </div>
+              <div class="dest-card-body">
+                <h3 class="dest-country-name">Morocco</h3>
+                <p class="dest-tagline">Walk through ancient Marrakech medinas, Sahara dunes, and breathtaking Atlantic coastlines.</p>
+                <div class="dest-meta">
+                  <div>
+                    <div class="dest-info">
+                      <ion-icon name="time-outline"></ion-icon>
+                      8 – 12 Days
+                    </div>
+                    <div class="dest-info" style="margin-block-start:5px;">
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      Via Dubai
+                    </div>
+                  </div>
+                  <div class="dest-price">
+                    <span class="from">Starting from</span>
+                    <span class="amount">PKR 3.2L</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="dest-book-btn">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Book This Package
+                </a>
+              </div>
+            </div>
+
+            <!-- EGYPT -->
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80"
+                  alt="Egypt Holiday Package"
+                  loading="lazy"
+                />
+                <div class="dest-flag">🇪🇬 Egypt</div>
+                <div class="dest-badge">Featured</div>
+              </div>
+              <div class="dest-card-body">
+                <h3 class="dest-country-name">Egypt</h3>
+                <p class="dest-tagline">Discover the Pyramids of Giza, Nile River cruises, Luxor temples and Red Sea resorts.</p>
+                <div class="dest-meta">
+                  <div>
+                    <div class="dest-info">
+                      <ion-icon name="time-outline"></ion-icon>
+                      7 – 10 Days
+                    </div>
+                    <div class="dest-info" style="margin-block-start:5px;">
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      Via Istanbul
+                    </div>
+                  </div>
+                  <div class="dest-price">
+                    <span class="from">Starting from</span>
+                    <span class="amount">PKR 2.5L</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="dest-book-btn">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Book This Package
+                </a>
+              </div>
+            </div>
+
+            <!-- INDONESIA -->
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80"
+                  alt="Indonesia Holiday Package"
+                  loading="lazy"
+                />
+                <div class="dest-flag">🇮🇩 Indonesia</div>
+                <div class="dest-badge">Trending</div>
+              </div>
+              <div class="dest-card-body">
+                <h3 class="dest-country-name">Indonesia</h3>
+                <p class="dest-tagline">Bali's terraced rice fields, Lombok's pristine beaches, and vibrant Javanese culture await.</p>
+                <div class="dest-meta">
+                  <div>
+                    <div class="dest-info">
+                      <ion-icon name="time-outline"></ion-icon>
+                      10 – 14 Days
+                    </div>
+                    <div class="dest-info" style="margin-block-start:5px;">
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      Via Kuala Lumpur
+                    </div>
+                  </div>
+                  <div class="dest-price">
+                    <span class="from">Starting from</span>
+                    <span class="amount">PKR 3.5L</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="dest-book-btn">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Book This Package
+                </a>
+              </div>
+            </div>
+
+            <!-- AZERBAIJAN -->
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img
+                  src="./assets/img/Azerbaijan.webp"
+                  alt="Azerbaijan Holiday Package"
+                  loading="lazy"
+                />
+                <div class="dest-flag">🇦🇿 Azerbaijan</div>
+                <div class="dest-badge">New</div>
+              </div>
+              <div class="dest-card-body">
+                <h3 class="dest-country-name">Azerbaijan</h3>
+                <p class="dest-tagline">Baku's futuristic skyline, ancient Gobustan petroglyphs and the magical flame towers of the Caspian.</p>
+                <div class="dest-meta">
+                  <div>
+                    <div class="dest-info">
+                      <ion-icon name="time-outline"></ion-icon>
+                      6 – 8 Days
+                    </div>
+                    <div class="dest-info" style="margin-block-start:5px;">
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      Via Istanbul
+                    </div>
+                  </div>
+                  <div class="dest-price">
+                    <span class="from">Starting from</span>
+                    <span class="amount">PKR 2.2L</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="dest-book-btn">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Book This Package
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WHY BOOK WITH US ===== -->
+      <section class="why-book-strip">
+        <div class="container">
+          <div class="why-book-grid">
+            <div class="why-book-item">
+              <ion-icon name="shield-checkmark-outline" class="icon"></ion-icon>
+              <h4>100% Secure</h4>
+              <p>Safe payments & trusted bookings</p>
+            </div>
+            <div class="why-book-item">
+              <ion-icon name="wallet-outline" class="icon"></ion-icon>
+              <h4>Best Price</h4>
+              <p>No hidden charges, ever</p>
+            </div>
+            <div class="why-book-item">
+              <ion-icon name="headset-outline" class="icon"></ion-icon>
+              <h4>24/7 Support</h4>
+              <p>Always here when you need us</p>
+            </div>
+            <div class="why-book-item">
+              <ion-icon name="document-text-outline" class="icon"></ion-icon>
+              <h4>Visa Help</h4>
+              <p>Complete visa documentation</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA ===== -->
+      <section class="holiday-cta">
+        <div class="container">
+          <h2 class="hcta-title">Can't Find Your Dream Destination?</h2>
+          <p class="hcta-text">Tell us where you want to go and we'll build a custom holiday package just for you. Any country, any budget.</p>
+          <div class="hcta-btns">
+            <a href="contact.html" class="btn-white">
+              <ion-icon name="call-outline"></ion-icon>
+              Call Us Now
+            </a>
+            <a href="contact.html" class="btn-hcta-outline">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="index.html" class="logo">
+              <img src="assets/img/SKY TRAVEL LOGO.png" width="187" height="38" alt="logo" />
+            </a>
+            <p class="footer-text">We always make our customer happy by providing as many choices as possible</p>
+            <ul class="social-list">
+              <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+              <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+              <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            </ul>
+          </div>
+
+                    <ul class="footer-list">
+            <li><p class="footer-list-title">Pages</p></li>
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="umrah.html" class="footer-link">Umrah Packages</a></li>
+            <li><a href="holiday.html" class="footer-link">Holiday Packages</a></li>
+            <li><a href="booking.html" class="footer-link">Book Now</a></li>
+          </ul>
+
+          <ul class="footer-list">
+            <li><p class="footer-list-title">Umrah Packages</p></li>
+            <li><a href="umrah.html" class="footer-link">Economy Package</a></li>
+            <li><a href="umrah.html" class="footer-link">Standard Package</a></li>
+            <li><a href="umrah.html" class="footer-link">Premium Package</a></li>
+          </ul>
+
+          <ul class="footer-list">
+            <li><p class="footer-list-title">Support</p></li>
+            <li><a href="#" class="footer-link">Support Center</a></li>
+            <li><a href="#" class="footer-link">Feedback</a></li>
+            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+            <li><a href="#" class="footer-link">FAQ</a></li>
+          </ul>
+
+          <div class="footer-list">
+            <p class="footer-list-title">Get in Touch</p>
+            <p class="footer-text">Question or feedback? We'd love to hear from you.</p>
+            <form class="input-wrapper" onsubmit="handleNewsletter(event)">
+              <input type="email" placeholder="Email Address" autocomplete="off" required class="input-field" />
+              <button type="submit" class="input-btn" aria-label="send a message">
+                <ion-icon name="paper-plane-outline" aria-hidden="true"></ion-icon>
+              </button>
+            </form>
+          </div>
+</div>
+
+        <div class="footer-bottom">
+          <p class="copyright">Copyright 2025. Sky Dreams Travel — Okara, Pakistan</p>
+          <ul class="footer-bottom-list">
+            <li><a href="terms.html" class="footer-bottom-link">Terms and Condition</a></li>
+            <li><a href="#" class="footer-bottom-link">Privacy and Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/923001234567" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+      <span class="wa-float-tooltip">Chat with us!</span>
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </a>
+
+  </body>
+</html>

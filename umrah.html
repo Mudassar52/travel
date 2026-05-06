@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Umrah Packages - Sky Dreams Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Book affordable Umrah packages from Okara, Pakistan. Economy, Standard & Premium Umrah packages with flights, hotels, visa & full support." />
+    <link rel="shortcut icon" href="favicon.svg" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+
+      /* ===== WHATSAPP FLOAT ===== */
+      .wa-float {
+        position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+        width: 58px; height: 58px; border-radius: 50%;
+        background: hsl(142,70%,49%); color: white;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 3rem; text-decoration: none;
+        box-shadow: 0 6px 24px hsla(142,70%,49%,0.5);
+        transition: transform 0.25s, box-shadow 0.25s;
+        animation: wa-pulse 2.5s infinite;
+      }
+      .wa-float:hover { transform: scale(1.12); box-shadow: 0 10px 32px hsla(142,70%,49%,0.65); animation: none; }
+      .wa-float-tooltip {
+        position: absolute; right: 68px; background: hsl(209,40%,14%); color: white;
+        font-size: 1.25rem; font-weight: 500; padding: 7px 14px; border-radius: 8px;
+        white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.25s;
+      }
+      .wa-float-tooltip::after {
+        content: ''; position: absolute; left: 100%; top: 50%; transform: translateY(-50%);
+        border: 6px solid transparent; border-left-color: hsl(209,40%,14%);
+      }
+      .wa-float:hover .wa-float-tooltip { opacity: 1; }
+      @keyframes wa-pulse {
+        0%,100% { box-shadow: 0 6px 24px hsla(142,70%,49%,0.5); }
+        50% { box-shadow: 0 6px 32px hsla(142,70%,49%,0.75), 0 0 0 10px hsla(142,70%,49%,0.12); }
+      }
+
+      /* ===== HERO ===== */
+      .umrah-hero {
+        position: relative;
+        min-height: 60vh;
+        display: flex;
+        align-items: flex-end;
+        margin-block-start: 80px;
+        overflow: hidden;
+        background:
+          linear-gradient(to bottom, hsla(0,0%,0%,0.1) 0%, hsla(0,0%,0%,0.72) 100%),
+          url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=1600&q=80') center/cover no-repeat;
+      }
+
+      .umrah-hero .container {
+        position: relative;
+        z-index: 2;
+        padding-block-end: 50px;
+        width: 100%;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: hsla(249,95%,63%,0.22);
+        border: 1px solid hsla(249,95%,63%,0.45);
+        color: hsla(0,0%,100%,0.95);
+        font-size: 1.3rem; font-weight: var(--weight-semiBold);
+        padding: 6px 18px; border-radius: 30px;
+        margin-block-end: 18px; letter-spacing: 0.06em;
+        backdrop-filter: blur(4px);
+      }
+
+      .umrah-hero-title {
+        font-size: clamp(3.8rem, 6vw, 6.4rem);
+        font-weight: var(--weight-bold);
+        color: var(--text-white);
+        line-height: 1.08;
+        margin-block-end: 18px;
+      }
+
+      .umrah-hero-title .accent {
+        color: var(--bg-majorelle-blue);
+        filter: brightness(1.8);
+      }
+
+      .umrah-hero-text {
+        font-size: 1.6rem;
+        color: hsla(0,0%,100%,0.85);
+        max-width: 540px;
+        line-height: 1.7;
+        margin-block-end: 34px;
+      }
+
+      .hero-btns {
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+      }
+
+      .btn-hero-outline {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 13px 26px;
+        border: 2px solid hsla(0,0%,100%,0.55);
+        border-radius: 10px; color: white;
+        font-family: inherit; font-size: 1.4rem; font-weight: var(--weight-semiBold);
+        text-decoration: none; backdrop-filter: blur(4px);
+        transition: background 0.25s, border-color 0.25s;
+      }
+      .btn-hero-outline:hover { background: hsla(0,0%,100%,0.12); border-color: white; }
+
+      /* hero stats bar */
+      .hero-stats-bar {
+        background: hsla(0,0%,0%,0.5);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding-block: 20px;
+        border-top: 1px solid hsla(0,0%,100%,0.1);
+      }
+      .hero-stats-inner {
+        display: flex; align-items: center; justify-content: space-around;
+        flex-wrap: wrap; gap: 20px 30px; text-align: center;
+      }
+      .hstat-item {}
+      .hstat-num { font-size: 2.6rem; font-weight: var(--weight-bold); color: white; line-height: 1; }
+      .hstat-num span { color: var(--bg-majorelle-blue); filter: brightness(1.7); }
+      .hstat-lbl { font-size: 1.3rem; color: hsla(0,0%,100%,0.75); margin-block-start: 4px; }
+
+      /* ===== PACKAGES SECTION ===== */
+      .umrah-packages {
+        padding-block: 90px;
+        background: var(--bg-lavender-blush);
+      }
+
+      .section-center { text-align: center; margin-block-end: 55px; }
+      .section-center .section-subtitle { margin-block-end: 8px; }
+      .section-center .section-desc {
+        font-size: 1.55rem; color: var(--text-granite-gray);
+        max-width: 560px; margin-inline: auto; line-height: 1.7; margin-block-start: 14px;
+      }
+
+      .pkg-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      @media (min-width: 768px) { .pkg-grid { grid-template-columns: repeat(3, 1fr); } }
+
+      .pkg-card {
+        background: var(--bg-white);
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: var(--shadow-1);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.35s, box-shadow 0.35s;
+        position: relative;
+      }
+
+      .pkg-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px hsla(249,95%,63%,0.18); }
+
+      .pkg-card.featured {
+        box-shadow: 0 8px 40px hsla(249,95%,63%,0.25);
+        transform: translateY(-6px);
+        border: 2px solid var(--bg-majorelle-blue);
+      }
+
+      .pkg-card.featured:hover { transform: translateY(-14px); }
+
+      .featured-ribbon {
+        position: absolute; top: 0; right: 0;
+        background: var(--bg-majorelle-blue);
+        color: white; font-size: 1.15rem; font-weight: var(--weight-bold);
+        padding: 6px 18px 6px 24px;
+        clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+        z-index: 2; letter-spacing: 0.04em;
+      }
+
+      .pkg-img-wrap {
+        position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden;
+      }
+      .pkg-img-wrap img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+        transition: transform 0.5s;
+      }
+      .pkg-card:hover .pkg-img-wrap img { transform: scale(1.07); }
+
+      .pkg-badge-img {
+        position: absolute; bottom: 14px; left: 14px;
+        padding: 5px 14px; border-radius: 30px;
+        font-size: 1.25rem; font-weight: var(--weight-bold);
+      }
+      .pkg-badge-img.eco    { background: hsl(145,63%,42%); color: white; }
+      .pkg-badge-img.std    { background: var(--bg-majorelle-blue); color: white; }
+      .pkg-badge-img.pre    { background: hsl(40,100%,50%); color: hsl(40,60%,20%); }
+
+      .pkg-body { padding: 26px 24px 28px; display: flex; flex-direction: column; flex: 1; }
+
+      .pkg-top {
+        display: flex; align-items: flex-start; justify-content: space-between;
+        gap: 12px; margin-block-end: 8px;
+      }
+      .pkg-name { font-size: 2rem; font-weight: var(--weight-bold); color: var(--text-gunmetal); }
+      .pkg-price-wrap { text-align: right; }
+      .pkg-price-wrap .from { display: block; font-size: 1.1rem; color: var(--text-granite-gray); }
+      .pkg-price-wrap .price { font-size: 2rem; font-weight: var(--weight-bold); color: var(--text-majorelle-blue); }
+
+      .pkg-duration {
+        display: inline-flex; align-items: center; gap: 5px;
+        font-size: 1.3rem; color: var(--text-granite-gray); margin-block-end: 14px;
+      }
+      .pkg-duration ion-icon { color: var(--bg-majorelle-blue); font-size: 1.5rem; }
+
+      .pkg-divider { border: none; border-top: 1px solid var(--border-gainsboro); margin-block: 16px; }
+
+      .pkg-includes-title {
+        font-size: 1.35rem; font-weight: var(--weight-semiBold);
+        color: var(--text-gunmetal); margin-block-end: 12px;
+        display: flex; align-items: center; gap: 6px;
+      }
+      .pkg-includes-title ion-icon { color: var(--bg-majorelle-blue); font-size: 1.6rem; }
+
+      .pkg-features {
+        list-style: none; padding: 0; margin: 0;
+        display: flex; flex-direction: column; gap: 9px;
+        margin-block-end: 24px; flex: 1;
+      }
+      .pkg-features li {
+        display: flex; align-items: center; gap: 9px;
+        font-size: 1.35rem; color: var(--text-gunmetal);
+      }
+      .pkg-features li ion-icon { color: hsl(145,63%,42%); font-size: 1.6rem; flex-shrink: 0; }
+
+      .pkg-book-btn {
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+        padding: 13px; border-radius: 10px;
+        background: var(--bg-majorelle-blue-alpha-5);
+        color: var(--text-majorelle-blue);
+        border: 1.5px solid hsla(249,95%,63%,0.2);
+        font-family: inherit; font-size: 1.45rem; font-weight: var(--weight-semiBold);
+        text-decoration: none; cursor: pointer;
+        transition: all 0.25s;
+      }
+      .pkg-book-btn:hover, .pkg-book-btn.active {
+        background: var(--bg-majorelle-blue); color: white;
+        border-color: var(--bg-majorelle-blue); box-shadow: var(--shadow-2);
+      }
+
+      /* ===== PLAN / ITINERARY SECTION ===== */
+      .umrah-plan {
+        padding-block: 90px;
+        background: var(--bg-white);
+      }
+
+      .plan-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        align-items: start;
+        margin-block-start: 50px;
+      }
+
+      @media (min-width: 992px) {
+        .plan-grid { grid-template-columns: 1fr 380px; gap: 60px; }
+      }
+
+      /* Timeline */
+      .plan-timeline { position: relative; }
+
+      .plan-day {
+        display: flex;
+        gap: 22px;
+        position: relative;
+        padding-block-end: 36px;
+      }
+
+      .plan-day:last-child { padding-block-end: 0; }
+
+      .plan-day-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .day-circle {
+        width: 52px; height: 52px;
+        border-radius: 50%;
+        background: var(--bg-majorelle-blue);
+        color: white;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        flex-shrink: 0;
+        box-shadow: var(--shadow-2);
+      }
+
+      .day-circle .day-num { font-size: 1.5rem; font-weight: var(--weight-bold); line-height: 1; }
+      .day-circle .day-lbl { font-size: 1rem; font-weight: var(--weight-medium); opacity: 0.85; }
+
+      .day-line {
+        width: 2px;
+        flex: 1;
+        background: linear-gradient(to bottom, var(--bg-majorelle-blue), var(--border-gainsboro));
+        margin-block-start: 8px;
+        min-height: 30px;
+      }
+
+      .plan-day:last-child .day-line { display: none; }
+
+      .plan-day-content {
+        background: var(--bg-lavender-blush);
+        border-radius: 16px;
+        padding: 22px 24px;
+        flex: 1;
+        border-left: 3px solid var(--bg-majorelle-blue);
+        transition: box-shadow 0.3s, transform 0.3s;
+      }
+
+      .plan-day-content:hover {
+        box-shadow: var(--shadow-1);
+        transform: translateX(4px);
+      }
+
+      .plan-day-title {
+        font-size: 1.7rem; font-weight: var(--weight-bold);
+        color: var(--text-gunmetal); margin-block-end: 6px;
+        display: flex; align-items: center; gap: 8px;
+      }
+
+      .plan-day-title ion-icon { color: var(--bg-majorelle-blue); font-size: 1.8rem; }
+
+      .plan-day-location {
+        font-size: 1.25rem; color: var(--text-majorelle-blue);
+        font-weight: var(--weight-semiBold); margin-block-end: 10px;
+        display: flex; align-items: center; gap: 5px;
+      }
+
+      .plan-day-text {
+        font-size: 1.4rem; color: var(--text-granite-gray); line-height: 1.7;
+        margin-block-end: 12px;
+      }
+
+      .plan-day-activities {
+        list-style: none; padding: 0; margin: 0;
+        display: flex; flex-direction: column; gap: 6px;
+      }
+
+      .plan-day-activities li {
+        display: flex; align-items: center; gap: 8px;
+        font-size: 1.35rem; color: var(--text-gunmetal);
+      }
+
+      .plan-day-activities li ion-icon {
+        font-size: 1.55rem; color: var(--bg-majorelle-blue); flex-shrink: 0;
+      }
+
+      /* Plan Sidebar */
+      .plan-sidebar { display: flex; flex-direction: column; gap: 24px; }
+
+      .plan-sidebar-card {
+        background: var(--bg-lavender-blush);
+        border-radius: 20px; padding: 28px 24px;
+        box-shadow: var(--shadow-1);
+      }
+
+      .plan-sidebar-card.cta-card {
+        background: var(--bg-majorelle-blue);
+        text-align: center;
+      }
+
+      .plan-sidebar-title {
+        font-size: 1.8rem; font-weight: var(--weight-bold);
+        color: var(--text-gunmetal); margin-block-end: 18px;
+        display: flex; align-items: center; gap: 8px;
+      }
+
+      .plan-sidebar-title ion-icon { color: var(--bg-majorelle-blue); font-size: 1.8rem; }
+
+      .plan-sidebar-card.cta-card .plan-sidebar-title {
+        color: white; justify-content: center;
+      }
+
+      .plan-sidebar-card.cta-card .plan-sidebar-title ion-icon { color: hsla(0,0%,100%,0.85); }
+
+      .quick-info-list {
+        list-style: none; padding: 0; margin: 0;
+        display: flex; flex-direction: column; gap: 12px;
+      }
+
+      .quick-info-item {
+        display: flex; align-items: center; gap: 12px;
+        padding: 12px; border-radius: 12px;
+        background: var(--bg-white); box-shadow: var(--shadow-1);
+      }
+
+      .qi-icon {
+        width: 40px; height: 40px; border-radius: 10px;
+        background: var(--bg-majorelle-blue); color: white;
+        display: grid; place-items: center; font-size: 1.8rem; flex-shrink: 0;
+      }
+
+      .qi-text strong {
+        display: block; font-size: 1.4rem; font-weight: var(--weight-semiBold);
+        color: var(--text-gunmetal);
+      }
+      .qi-text span { font-size: 1.25rem; color: var(--text-granite-gray); }
+
+      .cta-text-white {
+        font-size: 1.45rem; color: hsla(0,0%,100%,0.85);
+        line-height: 1.65; margin-block: 8px 22px;
+      }
+
+      .btn-white-cta {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 13px 26px;
+        background: white; color: var(--bg-majorelle-blue);
+        border-radius: 10px; font-family: inherit;
+        font-size: 1.4rem; font-weight: var(--weight-bold);
+        text-decoration: none; transition: transform 0.2s, box-shadow 0.25s;
+        box-shadow: 0 4px 16px hsla(0,0%,0%,0.15);
+      }
+      .btn-white-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px hsla(0,0%,0%,0.2); }
+
+      .whatsapp-btn {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 12px 22px;
+        background: hsl(142,70%,49%); color: white;
+        border-radius: 10px; font-family: inherit;
+        font-size: 1.4rem; font-weight: var(--weight-semiBold);
+        text-decoration: none; margin-block-start: 10px;
+        transition: background 0.25s, transform 0.2s;
+        box-shadow: 0 4px 16px hsla(142,70%,49%,0.4);
+      }
+      .whatsapp-btn:hover { background: hsl(142,70%,40%); transform: translateY(-2px); }
+
+      /* ===== WHY CHOOSE STRIP ===== */
+      .umrah-why {
+        padding-block: 60px;
+        background: var(--bg-majorelle-blue);
+      }
+
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 20px;
+        text-align: center;
+      }
+
+      @media (min-width: 768px) { .why-grid { grid-template-columns: repeat(4, 1fr); } }
+
+      .why-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .why-item-top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-block-end: 6px;
+      }
+
+      .why-item .icon {
+        font-size: 2.4rem;
+        color: hsla(0,0%,100%,0.9);
+        display: block;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+
+      .why-item h4 {
+        font-size: 1.55rem;
+        font-weight: var(--weight-bold);
+        color: white;
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      .why-item p { font-size: 1.3rem; color: hsla(0,0%,100%,0.75); line-height: 1.5; }
+
+      /* ===== CTA ===== */
+      .umrah-cta {
+        padding-block: 90px;
+        background-color: hsl(249, 95%, 20%);
+        background-image:
+          linear-gradient(to bottom, hsla(0,0%,0%,0.52) 0%, hsla(0,0%,0%,0.68) 100%),
+          url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=1600&q=80');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+      }
+
+      .umrah-cta .container { position: relative; z-index: 1; }
+
+      .cta-title {
+        font-size: clamp(3rem, 5vw, 5rem);
+        font-weight: var(--weight-bold);
+        color: white; line-height: 1.15;
+        margin-block-end: 16px;
+      }
+
+      .cta-text-main {
+        font-size: 1.6rem; color: hsla(0,0%,100%,0.82);
+        max-width: 520px; margin-inline: auto;
+        line-height: 1.7; margin-block-end: 36px;
+      }
+
+      .cta-btns {
+        display: flex; align-items: center; justify-content: center;
+        gap: 14px; flex-wrap: wrap;
+      }
+
+      .btn-cta-main {
+        display: inline-flex; align-items: center; gap: 9px;
+        padding: 14px 30px;
+        background: var(--bg-majorelle-blue); color: white;
+        border-radius: 10px; font-family: inherit;
+        font-size: 1.5rem; font-weight: var(--weight-bold);
+        text-decoration: none; border: none; cursor: pointer;
+        box-shadow: var(--shadow-2);
+        transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      }
+      .btn-cta-main:hover { background: var(--bg-ocean-blue); transform: translateY(-2px); box-shadow: 0 8px 24px hsla(249,95%,63%,0.5); }
+
+      .btn-cta-outline {
+        display: inline-flex; align-items: center; gap: 9px;
+        padding: 14px 30px;
+        border: 2px solid hsla(0,0%,100%,0.55);
+        border-radius: 10px; color: white;
+        font-family: inherit; font-size: 1.5rem; font-weight: var(--weight-semiBold);
+        text-decoration: none; backdrop-filter: blur(4px);
+        transition: background 0.25s, border-color 0.25s;
+      }
+      .btn-cta-outline:hover { background: hsla(0,0%,100%,0.12); border-color: white; }
+    </style>
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div class="preloader" data-preloader>
+      <div class="preloader-inner">
+        <img src="assets/img/preloader.svg" width="50" height="50" alt="" class="img" />
+      </div>
+    </div>
+
+    <!-- ======= HEADER ======= -->
+    <header class="header" data-header>
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="assets/img/logo.png" width="187" height="38" alt="Sky Dreams Travel" />
+        </a>
+
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="index.html" class="logo">
+              <img src="assets/img/logo.png" width="187" height="38" alt="logo" />
+            </a>
+            <button class="nav-toggle-btn" aria-label="close menu" data-nav-toggler>
+              <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
+
+          <ul class="navbar-list">
+            <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+            <li class="navbar-item"><a href="about.html" class="navbar-link">About</a></li>
+            <li class="navbar-item"><a href="holiday.html" class="navbar-link">Holiday</a></li>
+            <li class="navbar-item"><a href="umrah.html" class="navbar-link active">Umrah</a></li>
+            <li class="navbar-item"><a href="transfers.html" class="navbar-link">Transfers</a></li>
+            <li class="navbar-item"><a href="visa.html" class="navbar-link">Visa</a></li>
+            <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+               <div class="header-action">
+            <a href="booking.html" class="btn btn-primary active">Booking</a>
+          </div>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle-btn" aria-label="open menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <div class="overlay" data-overlay data-nav-toggler></div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ===== HERO ===== -->
+      <section class="umrah-hero">
+        <div style="width:100%;">
+          <div class="container">
+            <h1 class="umrah-hero-title">
+              Your Sacred Journey to <span class="accent">The Holy Land</span>
+            </h1>
+            <p class="umrah-hero-text">
+              Perform Umrah with complete peace of mind. Sky Dreams Travel handles everything — from visa to flights, hotels, and on-ground support in Saudi Arabia.
+            </p>
+            <div class="hero-btns">
+              <a href="booking.html" class="btn btn-primary">
+                <ion-icon name="calendar-outline"></ion-icon>
+                Book Umrah Package
+              </a>
+              <a href="#packages" class="btn-hero-outline">
+                <ion-icon name="list-outline"></ion-icon>
+                View Packages
+              </a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PACKAGES ===== -->
+      <section class="umrah-packages" id="packages">
+        <div class="container">
+          <div class="section-center">
+            <p class="section-subtitle">Choose Your Plan</p>
+            <h2 class="h2 title section-title">Our Umrah Packages</h2>
+            <p class="section-desc">Transparent pricing. No hidden fees. Every package includes Umrah visa, flights, hotel, and full on-ground support.</p>
+          </div>
+
+          <div class="pkg-grid">
+
+            <!-- ECONOMY -->
+            <div class="pkg-card">
+              <div class="pkg-img-wrap">
+                <img src="https://images.unsplash.com/photo-1565019011521-b0575cbb57a0?w=800&q=80" alt="Economy Umrah Package" loading="lazy" />
+                <span class="pkg-badge-img eco">Economy</span>
+              </div>
+              <div class="pkg-body">
+                <div class="pkg-top">
+                  <h3 class="pkg-name">Economy Package</h3>
+                  <div class="pkg-price-wrap">
+                    <span class="from">From</span>
+                    <span class="price">PKR 1.2L</span>
+                  </div>
+                </div>
+                <p class="pkg-duration">
+                  <ion-icon name="time-outline"></ion-icon>
+                  10 Days / 9 Nights
+                </p>
+                <hr class="pkg-divider" />
+                <p class="pkg-includes-title">
+                  <ion-icon name="list-circle-outline"></ion-icon>
+                  Package Includes
+                </p>
+                <ul class="pkg-features">
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Return Flights (Lahore–Jeddah)</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> 3-Star Hotel in Makkah (5 Nights)</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> 3-Star Hotel in Madinah (4 Nights)</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Umrah Visa Processing</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Airport Transfers (Jeddah)</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Makkah–Madinah Transport</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Ziyarat (Holy Sites Tour)</li>
+                </ul>
+                <a href="booking.html" class="pkg-book-btn">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Book Economy Package
+                </a>
+              </div>
+            </div>
+
+            <!-- STANDARD (FEATURED) -->
+            <div class="pkg-card featured">
+              <div class="featured-ribbon">⭐ Most Popular</div>
+              <div class="pkg-img-wrap">
+                <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800&q=80" alt="Standard Umrah Package" loading="lazy" />
+                <span class="pkg-badge-img std">Standard</span>
+              </div>
+              <div class="pkg-body">
+                <div class="pkg-top">
+                  <h3 class="pkg-name">Standard Package</h3>
+                  <div class="pkg-price-wrap">
+                    <span class="from">From</span>
+                    <span class="price">PKR 1.85L</span>
+                  </div>
+                </div>
+                <p class="pkg-duration">
+                  <ion-icon name="time-outline"></ion-icon>
+                  14 Days / 13 Nights
+                </p>
+                <hr class="pkg-divider" />
+                <p class="pkg-includes-title">
+                  <ion-icon name="list-circle-outline"></ion-icon>
+                  Package Includes
+                </p>
+                <ul class="pkg-features">
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Return Flights (Lahore–Jeddah)</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> 4-Star Hotel Near Haram (8 Nights)</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> 4-Star Hotel in Madinah (5 Nights)</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Umrah Visa + Group Guide</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Airport + Inter-city Transfers</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Breakfast & Dinner Included</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Ziyarat Makkah + Madinah</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> 24/7 WhatsApp Support</li>
+                </ul>
+                <a href="booking.html" class="pkg-book-btn active">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Book Standard Package
+                </a>
+              </div>
+            </div>
+
+            <!-- PREMIUM -->
+            <div class="pkg-card">
+              <div class="pkg-img-wrap">
+                <img src="https://images.unsplash.com/photo-1608096408624-e9f2f01f1025?w=800&q=80" alt="Premium Umrah Package" loading="lazy" />
+                <span class="pkg-badge-img pre">Premium</span>
+              </div>
+              <div class="pkg-body">
+                <div class="pkg-top">
+                  <h3 class="pkg-name">Premium Package</h3>
+                  <div class="pkg-price-wrap">
+                    <span class="from">From</span>
+                    <span class="price">PKR 2.5L</span>
+                  </div>
+                </div>
+                <p class="pkg-duration">
+                  <ion-icon name="time-outline"></ion-icon>
+                  14–21 Days / Flexible
+                </p>
+                <hr class="pkg-divider" />
+                <p class="pkg-includes-title">
+                  <ion-icon name="list-circle-outline"></ion-icon>
+                  Package Includes
+                </p>
+                <ul class="pkg-features">
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Business Class Flights Available</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> 5-Star Hotel — Haram View Room</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> 5-Star Hotel in Madinah</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> VIP Visa Processing (Fast Track)</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Full Board — All Meals Included</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Personal Umrah Guide (Urdu)</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> VIP Private Transfers</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Extended Ziyarat + Taif Visit</li>
+                </ul>
+                <a href="booking.html" class="pkg-book-btn">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Book Premium Package
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STEP-BY-STEP PLAN ===== -->
+      <section class="umrah-plan" id="plan">
+        <div class="container">
+          <div class="section-center">
+            <p class="section-subtitle">Your Journey Plan</p>
+            <h2 class="h2 title section-title">14-Day Umrah Itinerary</h2>
+            <p class="section-desc" style="margin-inline:auto;">A carefully planned day-by-day guide for our most popular Standard Package pilgrimage journey.</p>
+          </div>
+
+          <div class="plan-grid">
+
+            <!-- Timeline -->
+            <div class="plan-timeline">
+
+              <div class="plan-day">
+                <div class="plan-day-left">
+                  <div class="day-circle">
+                    <span class="day-num">1</span>
+                    <span class="day-lbl">Day</span>
+                  </div>
+                  <div class="day-line"></div>
+                </div>
+                <div class="plan-day-content">
+                  <h3 class="plan-day-title">
+                    <ion-icon name="airplane-outline"></ion-icon>
+                    Departure — Lahore to Jeddah
+                  </h3>
+                  <p class="plan-day-location"><ion-icon name="location-outline"></ion-icon> Lahore, Pakistan → Jeddah, KSA</p>
+                  <p class="plan-day-text">Assemble at Allama Iqbal International Airport. Put on Ihram before boarding. Fly to King Abdulaziz International Airport, Jeddah. Transfer to Makkah on arrival.</p>
+                  <ul class="plan-day-activities">
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Airport assembly & briefing at 6:00 AM</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Ihram donned before departure</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Direct transfer to hotel in Makkah</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="plan-day">
+                <div class="plan-day-left">
+                  <div class="day-circle">
+                    <span class="day-num">2</span>
+                    <span class="day-lbl">Day</span>
+                  </div>
+                  <div class="day-line"></div>
+                </div>
+                <div class="plan-day-content">
+                  <h3 class="plan-day-title">
+                    <ion-icon name="moon-outline"></ion-icon>
+                    Perform Umrah — Tawaf & Sa'i
+                  </h3>
+                  <p class="plan-day-location"><ion-icon name="location-outline"></ion-icon> Masjid Al-Haram, Makkah</p>
+                  <p class="plan-day-text">Perform the complete Umrah — Tawaf around the Kaaba, Sa'i between Safa and Marwa, and Halq/Taqsir. Guided by our certified Umrah scholar.</p>
+                  <ul class="plan-day-activities">
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Tawaf (7 circles around Kaaba)</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Sa'i (7 rounds Safa to Marwa)</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Halq / Taqsir (hair cut — exit Ihram)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="plan-day">
+                <div class="plan-day-left">
+                  <div class="day-circle">
+                    <span class="day-num">3–8</span>
+                    <span class="day-lbl">Days</span>
+                  </div>
+                  <div class="day-line"></div>
+                </div>
+                <div class="plan-day-content">
+                  <h3 class="plan-day-title">
+                    <ion-icon name="heart-outline"></ion-icon>
+                    Worship & Ziyarat in Makkah
+                  </h3>
+                  <p class="plan-day-location"><ion-icon name="location-outline"></ion-icon> Makkah Al-Mukarrama</p>
+                  <p class="plan-day-text">Six blessed days of worship, prayers at Masjid Al-Haram, and guided ziyarat of holy sites in and around Makkah. Ample time for personal ibadah and nafl Tawaf.</p>
+                  <ul class="plan-day-activities">
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Prayers at Masjid Al-Haram (all 5 times)</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Ziyarat: Jabal-e-Noor, Jabal-e-Thawr, Mina, Arafat</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Muzdalifah, Jamarat, Hudaibiyah</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Nafl Tawaf — unlimited times</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="plan-day">
+                <div class="plan-day-left">
+                  <div class="day-circle">
+                    <span class="day-num">9</span>
+                    <span class="day-lbl">Day</span>
+                  </div>
+                  <div class="day-line"></div>
+                </div>
+                <div class="plan-day-content">
+                  <h3 class="plan-day-title">
+                    <ion-icon name="bus-outline"></ion-icon>
+                    Transfer to Madinah Al-Munawwarah
+                  </h3>
+                  <p class="plan-day-location"><ion-icon name="location-outline"></ion-icon> Makkah → Madinah (4 hrs by road)</p>
+                  <p class="plan-day-text">Comfortable AC coach transfer from Makkah to Madinah. Check in to hotel near Masjid-e-Nabawi. Evening visit to Roza-e-Rasool (PBUH).</p>
+                  <ul class="plan-day-activities">
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Morning departure from Makkah</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Lunch en-route included</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> First visit to Roza-e-Rasool (PBUH) in the evening</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="plan-day">
+                <div class="plan-day-left">
+                  <div class="day-circle">
+                    <span class="day-num">10–13</span>
+                    <span class="day-lbl">Days</span>
+                  </div>
+                  <div class="day-line"></div>
+                </div>
+                <div class="plan-day-content">
+                  <h3 class="plan-day-title">
+                    <ion-icon name="sparkles-outline"></ion-icon>
+                    Worship & Ziyarat in Madinah
+                  </h3>
+                  <p class="plan-day-location"><ion-icon name="location-outline"></ion-icon> Madinah Al-Munawwarah</p>
+                  <p class="plan-day-text">Four spiritually enriching days in the City of the Prophet (PBUH). Prayers at Masjid-e-Nabawi, guided ziyarat of all important Islamic sites.</p>
+                  <ul class="plan-day-activities">
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Masjid-e-Nabawi — all 5 prayers</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Roza-e-Rasool (PBUH) — Salaam & Durood</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Ziyarat: Masjid Quba, Masjid Qiblatayn, Uhud</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Jannat-ul-Baqi, Dates Market</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="plan-day">
+                <div class="plan-day-left">
+                  <div class="day-circle">
+                    <span class="day-num">14</span>
+                    <span class="day-lbl">Day</span>
+                  </div>
+                  <div class="day-line"></div>
+                </div>
+                <div class="plan-day-content">
+                  <h3 class="plan-day-title">
+                    <ion-icon name="home-outline"></ion-icon>
+                    Return Flight — Back to Pakistan
+                  </h3>
+                  <p class="plan-day-location"><ion-icon name="location-outline"></ion-icon> Madinah / Jeddah → Lahore</p>
+                  <p class="plan-day-text">Final Fajr prayer at Masjid-e-Nabawi. Farewell to the holy city. Transfer to Madinah Airport or Jeddah for return flight to Lahore. Arrive home as a blessed pilgrim, Insha'Allah.</p>
+                  <ul class="plan-day-activities">
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Farewell Tawaf (Wida) if returning from Makkah</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Airport transfer — luggage handled by team</li>
+                    <li><ion-icon name="checkmark-outline"></ion-icon> Arrive Lahore — welcome home!</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="plan-sidebar">
+
+              <div class="plan-sidebar-card">
+                <h3 class="plan-sidebar-title">
+                  <ion-icon name="information-circle-outline"></ion-icon>
+                  Package Quick Info
+                </h3>
+                <ul class="quick-info-list">
+                  <li class="quick-info-item">
+                    <div class="qi-icon"><ion-icon name="time-outline"></ion-icon></div>
+                    <div class="qi-text"><strong>Duration</strong><span>14 Days / 13 Nights</span></div>
+                  </li>
+                  <li class="quick-info-item">
+                    <div class="qi-icon"><ion-icon name="airplane-outline"></ion-icon></div>
+                    <div class="qi-text"><strong>Departure City</strong><span>Lahore (LHE)</span></div>
+                  </li>
+                  <li class="quick-info-item">
+                    <div class="qi-icon"><ion-icon name="bed-outline"></ion-icon></div>
+                    <div class="qi-text"><strong>Hotels</strong><span>4-Star (Haram Area)</span></div>
+                  </li>
+                  <li class="quick-info-item">
+                    <div class="qi-icon"><ion-icon name="restaurant-outline"></ion-icon></div>
+                    <div class="qi-text"><strong>Meals</strong><span>Breakfast & Dinner</span></div>
+                  </li>
+                  <li class="quick-info-item">
+                    <div class="qi-icon"><ion-icon name="document-text-outline"></ion-icon></div>
+                    <div class="qi-text"><strong>Visa</strong><span>Umrah Visa Included</span></div>
+                  </li>
+                  <li class="quick-info-item">
+                    <div class="qi-icon"><ion-icon name="people-outline"></ion-icon></div>
+                    <div class="qi-text"><strong>Group Size</strong><span>Individual or Group</span></div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="plan-sidebar-card cta-card">
+                <h3 class="plan-sidebar-title">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Book Your Package
+                </h3>
+                <p class="cta-text-white">Limited seats available for each group. Secure your spot today with a small deposit.</p>
+                <a href="booking.html" class="btn-white-cta">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Book Now
+                </a>
+                <br/>
+                <a href="https://wa.me/923001234567" class="whatsapp-btn" target="_blank">
+                  <ion-icon name="logo-whatsapp"></ion-icon>
+                  Chat on WhatsApp
+                </a>
+              </div>
+
+              <div class="plan-sidebar-card">
+                <h3 class="plan-sidebar-title">
+                  <ion-icon name="alert-circle-outline"></ion-icon>
+                  What to Bring
+                </h3>
+                <ul class="quick-info-list" style="gap:10px;">
+                  <li class="quick-info-item">
+                    <div class="qi-icon" style="background:hsl(145,63%,42%);"><ion-icon name="id-card-outline"></ion-icon></div>
+                    <div class="qi-text"><strong>Passport</strong><span>Valid 6+ months</span></div>
+                  </li>
+                  <li class="quick-info-item">
+                    <div class="qi-icon" style="background:hsl(40,100%,50%); color:#333;"><ion-icon name="shirt-outline"></ion-icon></div>
+                    <div class="qi-text"><strong>Ihram</strong><span>2 sets for men</span></div>
+                  </li>
+                  <li class="quick-info-item">
+                    <div class="qi-icon" style="background:hsl(357,94%,63%);"><ion-icon name="medical-outline"></ion-icon></div>
+                    <div class="qi-text"><strong>Medicines</strong><span>Personal & Fever</span></div>
+                  </li>
+                  <li class="quick-info-item">
+                    <div class="qi-icon"><ion-icon name="book-outline"></ion-icon></div>
+                    <div class="qi-text"><strong>Dua Book</strong><span>Prayers & Zikr</span></div>
+                  </li>
+                </ul>
+              </div>
+
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WHY CHOOSE US ===== -->
+      <section class="umrah-why">
+        <div class="container">
+          <div class="why-grid">
+            <div class="why-item">
+              <div class="why-item-top">
+                <ion-icon name="shield-checkmark-outline" class="icon"></ion-icon>
+                <h4>100% Secure</h4>
+              </div>
+              <p>Safe payments & trusted bookings</p>
+            </div>
+            <div class="why-item">
+              <div class="why-item-top">
+                <ion-icon name="wallet-outline" class="icon"></ion-icon>
+                <h4>Best Price</h4>
+              </div>
+              <p>No hidden charges, ever</p>
+            </div>
+            <div class="why-item">
+              <div class="why-item-top">
+                <ion-icon name="headset-outline" class="icon"></ion-icon>
+                <h4>24/7 Support</h4>
+              </div>
+              <p>Always here when you need us</p>
+            </div>
+            <div class="why-item">
+              <div class="why-item-top">
+                <ion-icon name="document-text-outline" class="icon"></ion-icon>
+                <h4>Visa Help</h4>
+              </div>
+              <p>Complete visa documentation</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA ===== -->
+      <section class="umrah-cta">
+        <div class="container">
+          <h2 class="cta-title">Perform Your Umrah<br>This Year</h2>
+          <p class="cta-text-main">
+            Over 12,000 happy pilgrims have trusted Sky Dreams Travel. Book your package today and begin this blessed journey.
+          </p>
+          <div class="cta-btns">
+            <a href="booking.html" class="btn-cta-main">
+              <ion-icon name="calendar-outline"></ion-icon>
+              Book Umrah Package
+            </a>
+            <a href="https://wa.me/923001234567" class="btn-cta-outline" target="_blank">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="index.html" class="logo">
+              <img src="assets/img/SKY TRAVEL LOGO.png" width="187" height="38" alt="logo" />
+            </a>
+            <p class="footer-text">We always make our customer happy by providing as many choices as possible</p>
+            <ul class="social-list">
+              <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+              <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+              <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            </ul>
+          </div>
+
+                    <ul class="footer-list">
+            <li><p class="footer-list-title">Pages</p></li>
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="umrah.html" class="footer-link">Umrah Packages</a></li>
+            <li><a href="holiday.html" class="footer-link">Holiday Packages</a></li>
+            <li><a href="booking.html" class="footer-link">Book Now</a></li>
+          </ul>
+
+          <ul class="footer-list">
+            <li><p class="footer-list-title">Umrah Packages</p></li>
+            <li><a href="umrah.html" class="footer-link">Economy Package</a></li>
+            <li><a href="umrah.html" class="footer-link">Standard Package</a></li>
+            <li><a href="umrah.html" class="footer-link">Premium Package</a></li>
+          </ul>
+
+          <ul class="footer-list">
+            <li><p class="footer-list-title">Support</p></li>
+            <li><a href="#" class="footer-link">Support Center</a></li>
+            <li><a href="#" class="footer-link">Feedback</a></li>
+            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+            <li><a href="#" class="footer-link">FAQ</a></li>
+          </ul>
+
+          <div class="footer-list">
+            <p class="footer-list-title">Get in Touch</p>
+            <p class="footer-text">Question or feedback? We'd love to hear from you.</p>
+            <form class="input-wrapper" onsubmit="handleNewsletter(event)">
+              <input type="email" placeholder="Email Address" autocomplete="off" required class="input-field" />
+              <button type="submit" class="input-btn" aria-label="send a message">
+                <ion-icon name="paper-plane-outline" aria-hidden="true"></ion-icon>
+              </button>
+            </form>
+          </div>
+</div>
+
+        <div class="footer-bottom">
+          <p class="copyright">Copyright 2025. Sky Dreams Travel — Okara, Pakistan</p>
+          <ul class="footer-bottom-list">
+            <li><a href="terms.html" class="footer-bottom-link">Terms and Condition</a></li>
+            <li><a href="#" class="footer-bottom-link">Privacy and Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/923001234567" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+      <span class="wa-float-tooltip">Chat with us!</span>
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </a>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+      function toggleFaq(btn) {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      }
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
