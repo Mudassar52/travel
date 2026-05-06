@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transfers - Royal Manchester Travels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="title" content="Transfers - Royal Manchester Travels" />
+    <meta name="description" content="Reliable and comfortable transfer services - airport pickups, hotel transfers and more." />
+    <link rel="shortcut icon" href="favicon.svg" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+      /* ===================== TRANSFERS PAGE STYLES ===================== */
+
+      /* ---- HERO ---- */
+      .transfers-hero {
+        background:
+          linear-gradient(to bottom, hsla(0,0%,0%,0.45) 0%, hsla(0,0%,0%,0.62) 100%),
+          url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1600&q=80') center/cover no-repeat;
+        padding-block: 100px 80px;
+        margin-block-start: 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .transfers-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 60% 50%, hsla(249,95%,63%,0.15) 0%, transparent 65%);
+        pointer-events: none;
+      }
+
+      .transfers-hero .container { position: relative; z-index: 1; }
+
+      .transfers-hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: hsla(0,0%,100%,0.14);
+        color: var(--text-white);
+        font-size: 1.35rem;
+        font-weight: var(--weight-medium);
+        padding: 6px 20px;
+        border-radius: 30px;
+        margin-block-end: 20px;
+        letter-spacing: 0.06em;
+        border: 1px solid hsla(0,0%,100%,0.2);
+      }
+
+      .transfers-hero-title {
+        font-size: clamp(3.2rem, 5.5vw, 5.8rem);
+        font-weight: var(--weight-bold);
+        color: var(--text-white);
+        line-height: 1.1;
+        margin-block-end: 18px;
+      }
+
+      .transfers-hero-title span {
+        color: hsla(0,0%,100%,0.9);
+        text-shadow: 0 2px 20px hsla(249,95%,63%,0.7);
+      }
+
+      .transfers-hero-text {
+        color: hsla(0,0%,100%,0.85);
+        font-size: 1.6rem;
+        max-width: 600px;
+        margin-inline: auto;
+        line-height: 1.7;
+        margin-block-end: 36px;
+      }
+
+      .transfers-hero-btns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn-outline-white {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 28px;
+        border: 2px solid hsla(0,0%,100%,0.6);
+        border-radius: 10px;
+        color: var(--text-white);
+        font-family: inherit;
+        font-size: 1.4rem;
+        font-weight: var(--weight-semiBold);
+        text-decoration: none;
+        transition: background 0.25s, border-color 0.25s;
+      }
+
+      .btn-outline-white:hover {
+        background: hsla(0,0%,100%,0.12);
+        border-color: white;
+      }
+
+      /* ---- INTRO SECTION ---- */
+      .transfers-intro {
+        padding-block: 90px;
+        background: var(--bg-white);
+      }
+
+      .transfers-intro-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 54px;
+        align-items: center;
+      }
+
+      @media (min-width: 992px) {
+        .transfers-intro-grid { grid-template-columns: 1fr 1fr; gap: 70px; }
+      }
+
+      .transfers-intro-img-wrap {
+        position: relative;
+        border-radius: var(--radius-20);
+        overflow: hidden;
+        aspect-ratio: 4/3.2;
+        box-shadow: 0 20px 60px hsla(249,95%,63%,0.2);
+      }
+
+      .transfers-intro-img-wrap img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .transfers-intro-img-wrap:hover img { transform: scale(1.04); }
+
+      .transfers-intro-badge-img {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: white;
+        border-radius: 14px;
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 8px 30px hsla(0,0%,0%,0.15);
+      }
+
+      .transfers-intro-badge-img .badge-icon {
+        width: 46px;
+        height: 46px;
+        background: var(--bg-majorelle-blue-alpha-5);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        color: var(--text-majorelle-blue);
+      }
+
+      .transfers-intro-badge-img .badge-text strong {
+        display: block;
+        font-size: 1.4rem;
+        font-weight: var(--weight-bold);
+        color: var(--text-gunmetal);
+      }
+
+      .transfers-intro-badge-img .badge-text span {
+        font-size: 1.2rem;
+        color: var(--text-granite-gray);
+      }
+
+      .transfers-section-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-majorelle-blue);
+        font-size: 1.4rem;
+        font-weight: var(--weight-semiBold);
+        margin-block-end: 14px;
+      }
+
+      .transfers-section-title {
+        font-size: clamp(2.8rem, 3.5vw, 4rem);
+        font-weight: var(--weight-bold);
+        color: var(--text-gunmetal);
+        line-height: 1.2;
+        margin-block-end: 18px;
+      }
+
+      .transfers-section-title span {
+        color: var(--text-majorelle-blue);
+      }
+
+      .transfers-section-text {
+        font-size: 1.55rem;
+        color: var(--text-granite-gray);
+        line-height: 1.75;
+        margin-block-end: 16px;
+      }
+
+      .intro-highlights {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-block: 24px 32px;
+      }
+
+      .intro-highlight-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.45rem;
+        color: var(--text-gunmetal);
+        font-weight: var(--weight-medium);
+      }
+
+      .intro-highlight-item ion-icon {
+        color: hsl(145,63%,42%);
+        font-size: 1.9rem;
+        flex-shrink: 0;
+      }
+
+      /* ---- VEHICLE CARDS SECTION ---- */
+      .transfers-routes {
+        padding-block: 80px;
+        background: var(--bg-lavender-blush);
+      }
+
+      .transfers-routes .route-section-heading {
+        font-size: clamp(2.8rem, 3.5vw, 4.2rem);
+        font-weight: var(--weight-bold);
+        color: var(--text-gunmetal);
+        text-align: center;
+        margin-block-end: 14px;
+        line-height: 1.2;
+      }
+
+      .transfers-routes .route-section-heading span {
+        color: var(--text-majorelle-blue);
+      }
+
+      .routes-section-desc {
+        text-align: center;
+        font-size: 1.55rem;
+        color: var(--text-granite-gray);
+        max-width: 620px;
+        margin-inline: auto;
+        margin-block-end: 52px;
+        line-height: 1.7;
+      }
+
+      .routes-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      @media (min-width: 640px) {
+        .routes-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+
+      @media (min-width: 1024px) {
+        .routes-grid { grid-template-columns: repeat(4, 1fr); }
+      }
+
+      /* Vehicle Card */
+      .vehicle-card {
+        background: var(--bg-white);
+        border-radius: var(--radius-20);
+        overflow: hidden;
+        box-shadow: var(--shadow-1);
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .vehicle-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px hsla(249,95%,63%,0.22);
+      }
+
+      .vehicle-card-img-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16/10;
+        overflow: hidden;
+        background: #f0f0f0;
+      }
+
+      .vehicle-card-img-wrap img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .vehicle-card:hover .vehicle-card-img-wrap img { transform: scale(1.07); }
+
+      .vehicle-seats-badge {
+        position: absolute;
+        top: 13px;
+        left: 13px;
+        background: hsla(249,95%,63%,0.9);
+        color: white;
+        font-size: 1.2rem;
+        font-weight: var(--weight-semiBold);
+        padding: 4px 13px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        backdrop-filter: blur(4px);
+      }
+
+      .vehicle-card-body {
+        padding: 20px 20px 22px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .vehicle-card-name {
+        font-size: 1.65rem;
+        font-weight: var(--weight-bold);
+        color: var(--text-gunmetal);
+        margin-block-end: 14px;
+        line-height: 1.3;
+      }
+
+      .vehicle-features-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .vehicle-features-list li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.35rem;
+        color: var(--text-granite-gray);
+      }
+
+      .vehicle-features-list li ion-icon {
+        color: hsl(145,63%,42%);
+        font-size: 1.7rem;
+        flex-shrink: 0;
+      }
+
+      .vehicle-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-block-start: auto;
+        padding-block-start: 16px;
+        border-top: 1px solid hsla(0,0%,0%,0.07);
+      }
+
+      .vehicle-price {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .vehicle-price-label {
+        font-size: 1.15rem;
+        color: var(--text-granite-gray);
+        font-weight: var(--weight-medium);
+      }
+
+      .vehicle-price-amount {
+        font-size: 2rem;
+        font-weight: var(--weight-bold);
+        color: var(--text-majorelle-blue);
+        line-height: 1.1;
+      }
+
+      .vehicle-book-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 10px 18px;
+        border-radius: 10px;
+        background: var(--bg-majorelle-blue);
+        color: white;
+        font-family: inherit;
+        font-size: 1.35rem;
+        font-weight: var(--weight-semiBold);
+        text-decoration: none;
+        cursor: pointer;
+        transition: background 0.25s, box-shadow 0.25s;
+        white-space: nowrap;
+      }
+
+      .vehicle-book-btn:hover {
+        background: hsl(249,95%,55%);
+        box-shadow: var(--shadow-2);
+      }
+
+      /* ---- FEATURES SECTION ---- */
+      .transfers-features {
+        padding-block: 90px;
+        background: var(--bg-white);
+      }
+
+      .features-header {
+        text-align: center;
+        margin-block-end: 56px;
+      }
+
+      .features-header .section-subtitle {
+        font-size: 1.4rem;
+        font-weight: var(--weight-semiBold);
+        color: var(--text-majorelle-blue);
+        margin-block-end: 10px;
+        letter-spacing: 0.06em;
+      }
+
+      .features-header .section-title {
+        font-size: clamp(2.8rem, 3.5vw, 4rem);
+        font-weight: var(--weight-bold);
+        color: var(--text-gunmetal);
+        line-height: 1.2;
+      }
+
+      .features-header .section-title span { color: var(--text-majorelle-blue); }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      @media (min-width: 640px) {
+        .features-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+
+      @media (min-width: 1024px) {
+        .features-grid { grid-template-columns: repeat(4, 1fr); }
+      }
+
+      .feature-card {
+        background: var(--bg-lavender-blush);
+        border-radius: var(--radius-20);
+        padding: 32px 26px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1.5px solid transparent;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px hsla(249,95%,63%,0.15);
+        border-color: hsla(249,95%,63%,0.18);
+      }
+
+      .feature-card-icon {
+        width: 64px;
+        height: 64px;
+        background: var(--bg-majorelle-blue);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.8rem;
+        color: white;
+        margin-inline: auto;
+        margin-block-end: 18px;
+        box-shadow: var(--shadow-2);
+        transition: transform 0.3s;
+      }
+
+      .feature-card:hover .feature-card-icon { transform: scale(1.1) rotate(-4deg); }
+
+      .feature-card-title {
+        font-size: 1.7rem;
+        font-weight: var(--weight-bold);
+        color: var(--text-gunmetal);
+        margin-block-end: 10px;
+      }
+
+      .feature-card-text {
+        font-size: 1.35rem;
+        color: var(--text-granite-gray);
+        line-height: 1.65;
+      }
+
+      /* ---- CTA SECTION ---- */
+      .transfers-cta {
+        padding-block: 80px;
+        background:
+          url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1600&q=80') center/cover no-repeat;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .transfers-cta::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .transfers-cta .container { position: relative; z-index: 1; }
+
+      .cta-title {
+        font-size: clamp(2.8rem, 4vw, 4.5rem);
+        font-weight: var(--weight-bold);
+        color: white;
+        line-height: 1.15;
+        margin-block-end: 18px;
+      }
+
+      .cta-text {
+        color: hsla(0,0%,100%,0.88);
+        font-size: 1.6rem;
+        max-width: 560px;
+        margin-inline: auto;
+        line-height: 1.7;
+        margin-block-end: 36px;
+      }
+
+      .cta-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn-cta-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 30px;
+        background: white;
+        color: var(--text-majorelle-blue);
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 1.5rem;
+        font-weight: var(--weight-bold);
+        text-decoration: none;
+        transition: transform 0.25s, box-shadow 0.25s;
+        box-shadow: 0 6px 24px hsla(0,0%,0%,0.18);
+      }
+
+      .btn-cta-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 36px hsla(0,0%,0%,0.25);
+      }
+
+      /* ===== WHATSAPP FLOAT ===== */
+      .wa-float {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        z-index: 9999;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: hsl(142, 70%, 49%);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        text-decoration: none;
+        box-shadow: 0 6px 24px hsla(142,70%,49%,0.5);
+        transition: transform 0.25s, box-shadow 0.25s;
+        animation: wa-pulse 2.5s infinite;
+      }
+
+      .wa-float:hover {
+        transform: scale(1.12);
+        box-shadow: 0 10px 32px hsla(142,70%,49%,0.65);
+        animation: none;
+      }
+
+      .wa-float-tooltip {
+        position: absolute;
+        right: 68px;
+        background: var(--text-gunmetal);
+        color: white;
+        font-size: 1.25rem;
+        font-weight: var(--weight-medium);
+        padding: 7px 14px;
+        border-radius: 8px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s;
+      }
+
+      .wa-float-tooltip::after {
+        content: '';
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 6px solid transparent;
+        border-left-color: var(--text-gunmetal);
+      }
+
+      .wa-float:hover .wa-float-tooltip { opacity: 1; }
+
+      @keyframes wa-pulse {
+        0%, 100% { box-shadow: 0 6px 24px hsla(142,70%,49%,0.5); }
+        50% { box-shadow: 0 6px 32px hsla(142,70%,49%,0.75), 0 0 0 10px hsla(142,70%,49%,0.12); }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div class="preloader" data-preloader>
+      <div class="preloader-inner">
+        <img src="assets/img/preloader.svg" width="50" height="50" alt="" class="img" />
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" data-header>
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="assets/img/logo.png" width="187" height="38" alt="logo" />
+        </a>
+
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="index.html" class="logo">
+              <img src="assets/img/logo.png" width="187" height="38" alt="logo" />
+            </a>
+            <button class="nav-toggle-btn" aria-label="close menu" data-nav-toggler>
+              <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
+
+          <ul class="navbar-list">
+            <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+            <li class="navbar-item"><a href="about.html" class="navbar-link">About</a></li>
+            <li class="navbar-item"><a href="holiday.html" class="navbar-link">Holiday</a></li>
+            <li class="navbar-item"><a href="umrah.html" class="navbar-link">Umrah</a></li>
+            <li class="navbar-item"><a href="transfers.html" class="navbar-link active">Transfers</a></li>
+            <li class="navbar-item"><a href="visa.html" class="navbar-link">Visa</a></li>
+            <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+            <div class="header-action">
+              <a href="booking.html" class="btn btn-primary">Booking</a>
+            </div>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle-btn" aria-label="open menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <div class="overlay" data-overlay data-nav-toggler></div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ===== 1. HERO ===== -->
+      <section class="transfers-hero">
+        <div class="container">
+          <p class="transfers-hero-badge">
+            <ion-icon name="car-outline"></ion-icon>
+            Safe · Comfortable · On Time
+          </p>
+          <h1 class="transfers-hero-title">
+            Reliable &amp; Comfortable<br><span>Transfers</span>
+          </h1>
+          <p class="transfers-hero-text">
+            Sky Dreams Travels, we provide dependable and comfortable transfer services to make your journey smooth — from airport pickups to hotel transfers.
+          </p>
+          <div class="transfers-hero-btns">
+            <a href="contact.html" class="btn btn-primary">
+              <ion-icon name="call-outline"></ion-icon>
+              Book a Transfer
+            </a>
+            <a href="#transfer-routes" class="btn-outline-white">
+              <ion-icon name="arrow-down-outline"></ion-icon>
+              View Routes
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 2. INTRO ===== -->
+      <section class="transfers-intro section">
+        <div class="container">
+          <div class="transfers-intro-grid">
+
+            <div class="transfers-intro-img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=900&q=80"
+                alt="Comfortable Transfer Vehicle"
+                loading="lazy"
+              />
+              <div class="transfers-intro-badge-img">
+                <div class="badge-icon">
+                  <ion-icon name="shield-checkmark-outline"></ion-icon>
+                </div>
+                <div class="badge-text">
+                  <strong>Trusted Drivers</strong>
+                  <span>Professional &amp; Licensed</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="transfers-intro-content">
+              <p class="transfers-section-tag">
+                <ion-icon name="car-sport-outline"></ion-icon>
+                About Our Transfers
+              </p>
+              <h2 class="transfers-section-title">
+                Your Journey,<br><span>Our Responsibility</span>
+              </h2>
+              <p class="transfers-section-text">
+               Sky Dreams Travels, we provide dependable and comfortable transfer services to make your journey smooth. From airport pickups to hotel transfers, we ensure that you arrive at your destination on time and without any hassle.
+              </p>
+              <p class="transfers-section-text">
+                Our trusted drivers and clean, modern vehicles guarantee a pleasant ride, whether you're traveling locally or internationally. Let us handle your transportation needs so you can focus on enjoying your trip.
+              </p>
+
+              <div class="intro-highlights">
+                <div class="intro-highlight-item">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                  Professional, licensed &amp; courteous drivers
+                </div>
+                <div class="intro-highlight-item">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                  Clean, air-conditioned modern vehicles
+                </div>
+                <div class="intro-highlight-item">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                  Punctual pickups — always on schedule
+                </div>
+                <div class="intro-highlight-item">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                  Available 24/7 for local &amp; international travel
+                </div>
+              </div>
+
+              <a href="contact.html" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+                Book Your Transfer Today
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 3. VEHICLE CARDS ===== -->
+      <section class="transfers-routes section" id="transfer-routes">
+        <div class="container">
+
+          <h2 class="route-section-heading">
+            Jeddah Airport To <span>Makkah Hotel</span>
+          </h2>
+          <p class="routes-section-desc">
+            We offer seamless transfers across the most travelled routes between Jeddah and Madinah. Choose your route and travel in total comfort.
+          </p>
+
+          <div class="routes-grid">
+
+            <!-- Vehicle Card 1 -->
+            <div class="vehicle-card">
+              <div class="vehicle-card-img-wrap">
+                <img
+                  src="./assets/img/car.webp"
+                  alt="Hyundai 7 Seater"
+                  loading="lazy"
+                />
+                <span class="vehicle-seats-badge">
+                  <ion-icon name="people-outline"></ion-icon>
+                  4 Passengers
+                </span>
+              </div>
+              <div class="vehicle-card-body">
+                <h3 class="vehicle-card-name">Civic 4 Seaters</h3>
+                <ul class="vehicle-features-list">
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Pay At Pickup</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Enhanced Cleaning</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Free Cancellation</li>
+                </ul>
+                <div class="vehicle-card-footer">
+                  <div class="vehicle-price">
+                    <span class="vehicle-price-label">From</span>
+                    <span class="vehicle-price-amount">GBP65</span>
+                  </div>
+                  <a href="contact.html" class="vehicle-book-btn">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vehicle Card 2 -->
+            <div class="vehicle-card">
+              <div class="vehicle-card-img-wrap">
+                <img
+                  src="./assets/img/Hyundai.webp"
+                  alt="Hyundai 7 Seater"
+                  loading="lazy"
+                />
+                <span class="vehicle-seats-badge">
+                  <ion-icon name="people-outline"></ion-icon>
+                  4 Passengers
+                </span>
+              </div>
+              <div class="vehicle-card-body">
+                <h3 class="vehicle-card-name">Hyundai 4 Seaters</h3>
+                <ul class="vehicle-features-list">
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Pay At Pickup</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Enhanced Cleaning</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Free Cancellation</li>
+                </ul>
+                <div class="vehicle-card-footer">
+                  <div class="vehicle-price">
+                    <span class="vehicle-price-label">From</span>
+                    <span class="vehicle-price-amount">GBP85</span>
+                  </div>
+                  <a href="contact.html" class="vehicle-book-btn">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vehicle Card 3 -->
+            <div class="vehicle-card">
+              <div class="vehicle-card-img-wrap">
+                <img
+                  src="./assets/img/gmc.jpg"
+                  alt="Hyundai 7 Seater"
+                  loading="lazy"
+                />
+                <span class="vehicle-seats-badge">
+                  <ion-icon name="people-outline"></ion-icon>
+                  6 Passengers
+                </span>
+              </div>
+              <div class="vehicle-card-body">
+                <h3 class="vehicle-card-name">GMC 6 Seaters</h3>
+                <ul class="vehicle-features-list">
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Pay At Pickup</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Enhanced Cleaning</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Free Cancellation</li>
+                </ul>
+                <div class="vehicle-card-footer">
+                  <div class="vehicle-price">
+                    <span class="vehicle-price-label">From</span>
+                    <span class="vehicle-price-amount">GBP110</span>
+                  </div>
+                  <a href="contact.html" class="vehicle-book-btn">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vehicle Card 4 -->
+            <div class="vehicle-card">
+              <div class="vehicle-card-img-wrap">
+                <img
+                  src="./assets/img/Hiace Grand Cabin.webp"
+                  alt="Hyundai 11 Seater"
+                  loading="lazy"
+                />
+                <span class="vehicle-seats-badge">
+                  <ion-icon name="people-outline"></ion-icon>
+                  11 Passengers
+                </span>
+              </div>
+              <div class="vehicle-card-body">
+                <h3 class="vehicle-card-name">Hiace Grand Cabin</h3>
+                <ul class="vehicle-features-list">
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Pay At Pickup</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Enhanced Cleaning</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Free Cancellation</li>
+                </ul>
+                <div class="vehicle-card-footer">
+                  <div class="vehicle-price">
+                    <span class="vehicle-price-label">From</span>
+                    <span class="vehicle-price-amount">GBP125</span>
+                  </div>
+                  <a href="contact.html" class="vehicle-book-btn">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    <!-- ===== 4. JEDDAH AIRPORT TO MADINAH / MADINAH TO JEDDAH ===== -->
+      <section class="transfers-routes section" style="background: var(--bg-white);">
+        <div class="container">
+
+          <h2 class="route-section-heading">
+            Jeddah Airport To <span>Madinah Hotel</span>
+          </h2>
+          <p class="routes-section-desc">
+            Arrive at King Abdulaziz International Airport and travel directly to your hotel in Madinah — comfortable, punctual and stress-free.
+          </p>
+
+          <div class="routes-grid">
+
+            <div class="vehicle-card">
+              <div class="vehicle-card-img-wrap">
+                <img src="./assets/img/car.webp" alt="Hyundai 7 Seater" loading="lazy" />
+                <span class="vehicle-seats-badge"><ion-icon name="people-outline"></ion-icon> 4 Passengers</span>
+              </div>
+              <div class="vehicle-card-body">
+                <h3 class="vehicle-card-name">Civic 4 Seaters</h3>
+                <ul class="vehicle-features-list">
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Pay At Pickup</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Enhanced Cleaning</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Free Cancellation</li>
+                </ul>
+                <div class="vehicle-card-footer">
+                  <div class="vehicle-price"><span class="vehicle-price-label">From</span><span class="vehicle-price-amount">GBP65</span></div>
+                  <a href="contact.html" class="vehicle-book-btn"><ion-icon name="calendar-outline"></ion-icon> Book Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="vehicle-card">
+              <div class="vehicle-card-img-wrap">
+                <img src="./assets/img/Hyundai.webp" alt="Hyundai 7 Seater" loading="lazy" />
+                <span class="vehicle-seats-badge"><ion-icon name="people-outline"></ion-icon> 4 Passengers</span>
+              </div>
+              <div class="vehicle-card-body">
+                <h3 class="vehicle-card-name">Hyundai 4 Seaters</h3>
+                <ul class="vehicle-features-list">
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Pay At Pickup</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Enhanced Cleaning</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Free Cancellation</li>
+                </ul>
+                <div class="vehicle-card-footer">
+                  <div class="vehicle-price"><span class="vehicle-price-label">From</span><span class="vehicle-price-amount">GBP85</span></div>
+                  <a href="contact.html" class="vehicle-book-btn"><ion-icon name="calendar-outline"></ion-icon> Book Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="vehicle-card">
+              <div class="vehicle-card-img-wrap">
+                <img src="./assets/img/gmc.jpg" alt="GMC 7 Seater" loading="lazy" />
+                <span class="vehicle-seats-badge"><ion-icon name="people-outline"></ion-icon> 6 Passengers</span>
+              </div>
+              <div class="vehicle-card-body">
+                <h3 class="vehicle-card-name">GMC 6 Seaters</h3>
+                <ul class="vehicle-features-list">
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Pay At Pickup</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Enhanced Cleaning</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Free Cancellation</li>
+                </ul>
+                <div class="vehicle-card-footer">
+                  <div class="vehicle-price"><span class="vehicle-price-label">From</span><span class="vehicle-price-amount">GBP110</span></div>
+                  <a href="contact.html" class="vehicle-book-btn"><ion-icon name="calendar-outline"></ion-icon> Book Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="vehicle-card">
+              <div class="vehicle-card-img-wrap">
+                <img src="./assets/img/Hiace Grand Cabin.webp" alt="Hiace Grand Cabin" loading="lazy" />
+                <span class="vehicle-seats-badge"><ion-icon name="people-outline"></ion-icon> 11 Passengers</span>
+              </div>
+              <div class="vehicle-card-body">
+                <h3 class="vehicle-card-name">Hiace Grand Cabin</h3>
+                <ul class="vehicle-features-list">
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Pay At Pickup</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Enhanced Cleaning</li>
+                  <li><ion-icon name="checkmark-circle-outline"></ion-icon> Free Cancellation</li>
+                </ul>
+                <div class="vehicle-card-footer">
+                  <div class="vehicle-price"><span class="vehicle-price-label">From</span><span class="vehicle-price-amount">GBP125</span></div>
+                  <a href="contact.html" class="vehicle-book-btn"><ion-icon name="calendar-outline"></ion-icon> Book Now</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+    
+        </div>
+      </section>
+
+     
+
+      <!-- ===== 6. FEATURES ===== -->
+      <section class="transfers-features section">
+        <div class="container">
+          <div class="features-header">
+            <p class="section-subtitle">Why Choose Us</p>
+            <h2 class="section-title">
+              What Makes Our Transfers<br><span>Stand Out</span>
+            </h2>
+          </div>
+
+          <div class="features-grid">
+
+            <div class="feature-card">
+              <div class="feature-card-icon">
+                <ion-icon name="shield-checkmark-outline"></ion-icon>
+              </div>
+              <h3 class="feature-card-title">Safe &amp; Trusted</h3>
+              <p class="feature-card-text">All drivers are background-checked, licensed, and trained to prioritise your safety above everything else.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-card-icon">
+                <ion-icon name="time-outline"></ion-icon>
+              </div>
+              <h3 class="feature-card-title">Always On Time</h3>
+              <p class="feature-card-text">We monitor your flight and adjust pickup times automatically — so you never wait or feel rushed.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-card-icon">
+                <ion-icon name="car-sport-outline"></ion-icon>
+              </div>
+              <h3 class="feature-card-title">Modern Vehicles</h3>
+              <p class="feature-card-text">Clean, air-conditioned, and well-maintained vehicles ensure a comfortable ride on every journey.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-card-icon">
+                <ion-icon name="headset-outline"></ion-icon>
+              </div>
+              <h3 class="feature-card-title">24/7 Support</h3>
+              <p class="feature-card-text">Our support team is available around the clock via WhatsApp and phone to assist you anytime.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 5. CTA ===== -->
+      <section class="transfers-cta">
+        <div class="container">
+          <h2 class="cta-title">
+            Ready to Book Your<br>Transfer?
+          </h2>
+          <p class="cta-text">
+            Contact us today and let Sky Dreams Travels handle your transportation needs — so you can focus on what matters most.
+          </p>
+          <div class="cta-buttons">
+            <a href="contact.html" class="btn-cta-primary">
+              <ion-icon name="call-outline"></ion-icon>
+              Contact Us Now
+            </a>
+            <a href="https://wa.me/923001234567" target="_blank" class="btn-outline-white">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="index.html" class="logo">
+              <img src="assets/img/SKY TRAVEL LOGO.png" width="187" height="38" alt="logo" />
+            </a>
+            <p class="footer-text">We always make our customer happy by providing as many choices as possible</p>
+            <ul class="social-list">
+              <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+              <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+              <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            </ul>
+          </div>
+
+          <ul class="footer-list">
+            <li><p class="footer-list-title">Pages</p></li>
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="umrah.html" class="footer-link">Umrah Packages</a></li>
+            <li><a href="holiday.html" class="footer-link">Holiday Packages</a></li>
+            <li><a href="transfers.html" class="footer-link">Transfers</a></li>
+            <li><a href="booking.html" class="footer-link">Book Now</a></li>
+          </ul>
+
+          <ul class="footer-list">
+            <li><p class="footer-list-title">Umrah Packages</p></li>
+            <li><a href="umrah.html" class="footer-link">Economy Package</a></li>
+            <li><a href="umrah.html" class="footer-link">Standard Package</a></li>
+            <li><a href="umrah.html" class="footer-link">Premium Package</a></li>
+          </ul>
+
+          <ul class="footer-list">
+            <li><p class="footer-list-title">Support</p></li>
+            <li><a href="#" class="footer-link">Support Center</a></li>
+            <li><a href="#" class="footer-link">Feedback</a></li>
+            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+            <li><a href="#" class="footer-link">FAQ</a></li>
+          </ul>
+
+          <div class="footer-list">
+            <p class="footer-list-title">Get in Touch</p>
+            <p class="footer-text">Question or feedback? We'd love to hear from you.</p>
+            <form class="input-wrapper" onsubmit="handleNewsletter(event)">
+              <input type="email" placeholder="Email Address" autocomplete="off" required class="input-field" />
+              <button type="submit" class="input-btn" aria-label="send a message">
+                <ion-icon name="paper-plane-outline" aria-hidden="true"></ion-icon>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">Copyright 2025. Sky Dreams Travel — Okara, Pakistan</p>
+          <ul class="footer-bottom-list">
+            <li><a href="terms.html" class="footer-bottom-link">Terms and Condition</a></li>
+            <li><a href="#" class="footer-bottom-link">Privacy and Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/923001234567" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+      <span class="wa-float-tooltip">Chat with us!</span>
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </a>
+
+  </body>
+</html>
